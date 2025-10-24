@@ -6,7 +6,12 @@
   "outputDirectory": ".next",
   "git": {
     "deploymentEnabled": {
-      "main": false
+      "main": true
+    }
+  },
+  "functions": {
+    "app/**/*.tsx": {
+      "runtime": "nodejs18.x"
     }
   }
 }
