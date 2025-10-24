@@ -170,7 +170,6 @@ export default function Footer() {
                   <item.Icon className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-gray-400 text-sm font-body">{item.primary}</p>
-                    {item.tertiary && <p className="text-gray-400 text-sm font-body">{item.tertiary}</p>}
                     <p className="text-gray-500 text-xs font-body">{item.secondary}</p>
                   </div>
                 </motion.li>
