@@ -8,11 +8,6 @@
     "deploymentEnabled": {
       "main": true
     }
-  },
-  "functions": {
-    "app/**/*.tsx": {
-      "runtime": "nodejs18.x"
-    }
   }
 }
 
