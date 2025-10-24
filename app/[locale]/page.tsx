@@ -361,7 +361,6 @@ export default function Home() {
                   </motion.div>
                   <h3 className="font-bold mb-2 text-fana-primary">{item.title}</h3>
                   <p className="text-fana-navy text-sm">{item.text}</p>
-                  {item.text2 && <p className="text-fana-navy text-sm mt-1">{item.text2}</p>}
                 </motion.div>
               ))}
             </motion.div>
