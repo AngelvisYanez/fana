@@ -5,8 +5,11 @@ import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { useTranslations } from 'next-intl';
 
 export default function TerminosServicioPage() {
+  const t = useTranslations('legal.terms');
+  
   return (
     <PageTransition>
       <div className="min-h-screen">
@@ -26,19 +29,19 @@ export default function TerminosServicioPage() {
                 variants={fadeInUp}
               >
                 <span className="w-2 h-2 bg-fana-primary rounded-full"></span>
-                Información Legal
+                {t('badge')}
               </motion.div>
               <motion.h1 
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-fana-navy mb-6 leading-tight"
                 variants={fadeInUp}
               >
-                <span className="text-fana-primary">Términos y Condiciones</span>
+                <span className="text-fana-primary">{t('title')}</span>
               </motion.h1>
               <motion.p 
                 className="text-lg md:text-xl text-gray-600 leading-relaxed"
                 variants={fadeInUp}
               >
-                Condiciones del servicio B2B para clínicas y laboratorios dentales
+                {t('subtitle')}
               </motion.p>
             </motion.div>
           </div>
@@ -60,17 +63,17 @@ export default function TerminosServicioPage() {
                   variants={fadeInUp}
                 >
                   <h2 className="text-2xl font-bold text-fana-navy mb-2">
-                    TÉRMINOS Y CONDICIONES DEL SERVICIO B2B
+                    {t('header.title')}
                   </h2>
                   <p className="text-gray-600">
-                    <strong>Empresa:</strong> FANA GROUP CORP (Nombre ficticio: FANA MILLING CENTER)<br/>
-                    <strong>Número de registro:</strong> G25000131466<br/>
-                    <strong>Estado:</strong> ACTIVO<br/>
-                    <strong>Fecha de registro:</strong> 09/10/2025<br/>
-                    <strong>Fecha de vencimiento:</strong> 31/12/2030<br/>
-                    <strong>Domicilio:</strong> 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA<br/>
-                    <strong>Condado:</strong> MIAMI-DADE<br/>
-                    <strong>Fecha de última actualización:</strong> Octubre de 2025
+                    <strong>{t('header.company')}</strong><br/>
+                    <strong>{t('header.registration')}</strong><br/>
+                    <strong>{t('header.status')}</strong><br/>
+                    <strong>{t('header.regDate')}</strong><br/>
+                    <strong>{t('header.expDate')}</strong><br/>
+                    <strong>{t('header.address')}</strong><br/>
+                    <strong>{t('header.county')}</strong><br/>
+                    <strong>{t('header.lastUpdate')}</strong>
                   </p>
                 </motion.div>
 
@@ -81,14 +84,11 @@ export default function TerminosServicioPage() {
                 >
                   <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
                     <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                    Objeto
+                    {t('sections.object.title')}
                   </h3>
                   <div className="bg-gray-50 p-6 rounded-lg">
                     <p className="text-gray-700 leading-relaxed">
-                      El presente documento establece los términos y condiciones que rigen la prestación de servicios de 
-                      fresado CNC CAD/CAM, fabricación de prótesis dentales y venta de suministros B2B por parte de 
-                      <strong> FANA Milling Center</strong> (en adelante, "El Laboratorio") a clínicas y laboratorios dentales 
-                      (en adelante, "El Cliente").
+                      {t('sections.object.content')}
                     </p>
                   </div>
                 </motion.div>
@@ -100,25 +100,23 @@ export default function TerminosServicioPage() {
                 >
                   <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
                     <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                    Servicios Ofrecidos
+                    {t('sections.services.title')}
                   </h3>
                   <div className="bg-gray-50 p-6 rounded-lg">
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      El Laboratorio ofrece servicios especializados en:
+                      {t('sections.services.intro')}
                     </p>
                     <ul className="space-y-4 text-gray-700">
                       <li className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
                         <div>
-                          <strong>Fresado de Precisión:</strong> Fabricación de estructuras de implantes, coronas, puentes y 
-                          restauraciones estéticas mediante tecnología CNC de 5 ejes y con una precisión garantizada de ±5μm.
+                          <strong>{t('sections.services.items.milling')}</strong>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
                         <div>
-                          <strong>Venta de Suministros:</strong> Comercialización de bloques, discos y consumibles certificados 
-                          (Zirconio, Disilicato, PMMA, etc.).
+                          <strong>{t('sections.services.items.supplies')}</strong>
                         </div>
                       </li>
                     </ul>
@@ -132,32 +130,26 @@ export default function TerminosServicioPage() {
                 >
                   <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
                     <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                    Proceso de Pedido y Fabricación
+                    {t('sections.process.title')}
                   </h3>
                   <div className="bg-gray-50 p-6 rounded-lg">
                     <div className="space-y-4 text-gray-700">
                       <div className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
                         <div>
-                          <strong>Envío del Caso:</strong> El Cliente enviará el diseño digital (archivo STL/CAD) a través de la 
-                          plataforma web o por los canales autorizados. El Cliente es el único responsable de la exactitud del 
-                          diseño, los márgenes y la toma de color especificada.
+                          <strong>{t('sections.process.items.order')}</strong>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
                         <div>
-                          <strong>Presupuesto y Confirmación:</strong> El Laboratorio emitirá un presupuesto y el plazo de entrega 
-                          estimado (generalmente 24-48 horas a partir de la confirmación). La fabricación solo comenzará tras la 
-                          aceptación del presupuesto por parte del Cliente.
+                          <strong>{t('sections.process.items.quote')}</strong>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
                         <div>
-                          <strong>Plazos de Entrega:</strong> Los plazos de entrega son estimados y FANA hará todo lo posible por 
-                          cumplirlos. No obstante, no se aceptan responsabilidades ni compensaciones económicas por retrasos debidos 
-                          a causas ajenas (transporte, fallos de software, fuerza mayor).
+                          <strong>{t('sections.process.items.delivery')}</strong>
                         </div>
                       </div>
                     </div>
@@ -171,31 +163,30 @@ export default function TerminosServicioPage() {
                 >
                   <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
                     <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                    Garantía y Limitación de Responsabilidad
+                    {t('sections.warranty.title')}
                   </h3>
                   <div className="bg-gray-50 p-6 rounded-lg">
                     <div className="space-y-4 text-gray-700">
                       <div className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
                         <div>
-                          <strong>Garantía del Producto:</strong> El Laboratorio garantiza que todas las prótesis y estructuras 
-                          cumplen con la precisión de ±5μm y están fabricadas con materiales certificados ISO 13485.
+                          <strong>{t('sections.warranty.items.product')}</strong>
                         </div>
                       </div>
                       <div>
-                        <strong>Exclusiones de Garantía:</strong> La garantía no cubrirá fallos o ajustes necesarios que sean consecuencia de:
+                        <strong>{t('sections.warranty.items.exclusions')}</strong>
                         <ul className="mt-3 space-y-2 ml-4">
                           <li className="flex items-start gap-2">
                             <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mt-2 flex-shrink-0"></span>
-                            <span>Errores en la toma de impresión o diseño CAD suministrado por el Cliente.</span>
+                            <span>{t('sections.warranty.items.exclusionItems.design')}</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mt-2 flex-shrink-0"></span>
-                            <span>Manipulación, alteración o tallado posterior de la pieza por parte del Cliente o terceros.</span>
+                            <span>{t('sections.warranty.items.exclusionItems.manipulation')}</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mt-2 flex-shrink-0"></span>
-                            <span>Uso inadecuado o accidentes.</span>
+                            <span>{t('sections.warranty.items.exclusionItems.misuse')}</span>
                           </li>
                         </ul>
                       </div>
@@ -210,13 +201,11 @@ export default function TerminosServicioPage() {
                 >
                   <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
                     <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
-                    Jurisdicción
+                    {t('sections.jurisdiction.title')}
                   </h3>
                   <div className="bg-gray-50 p-6 rounded-lg">
                     <p className="text-gray-700 leading-relaxed">
-                      Para la resolución de cualquier conflicto o litigio derivado de la interpretación o ejecución de estos términos, 
-                      ambas partes se someten a los Juzgados y Tribunales de la ciudad de Madrid, España, con renuncia expresa a 
-                      cualquier otro fuero.
+                      {t('sections.jurisdiction.content')}
                     </p>
                   </div>
                 </motion.div>
@@ -226,20 +215,19 @@ export default function TerminosServicioPage() {
                   className="bg-fana-primary text-white p-8 rounded-2xl text-center"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-white">¿Necesitas Aclaraciones?</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-white">{t('contact.title')}</h3>
                   <p className="text-white mb-6">
-                    Si tienes alguna consulta sobre nuestros términos y condiciones o necesitas más información sobre nuestros servicios B2B, 
-                    nuestro equipo está disponible para ayudarte.
+                    {t('contact.subtitle')}
                   </p>
                   <a 
-                    href="mailto:info@fanamilling.com"
+                    href="mailto:info@fanamillingcenter.com"
                     className="inline-flex items-center gap-2 bg-white text-fana-primary px-6 py-3 rounded-lg font-medium hover:bg-fana-secondary transition-colors"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
-                    Contactar
+                    {t('contact.button')}
                   </a>
                 </motion.div>
               </motion.div>

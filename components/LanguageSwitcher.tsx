@@ -49,7 +49,7 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden">
+        <div className="absolute top-full left-0 sm:left-0 mt-2 w-full sm:w-40 bg-white rounded-lg shadow-xl border border-gray-200 z-[9999] overflow-visible">
           {languages.map((language) => (
             <button
               key={language.code}

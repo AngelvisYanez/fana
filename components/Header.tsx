@@ -11,12 +11,6 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// TikTok Icon Component
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="white">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-);
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
@@ -67,13 +61,10 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 transition-all duration-200">
+                <motion.a href="https://www.instagram.com/fanamillingcenter/" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 transition-all duration-200">
                   <InstagramIcon className="w-3 h-3" />
                 </motion.a>
-                <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 transition-all duration-200">
-                  <TikTokIcon className="w-3 h-3" />
-                </motion.a>
-                <motion.a href="https://www.linkedin.com/company/fana-milling-center" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 transition-all duration-200">
+                <motion.a href="https://www.linkedin.com/company/fana-milling-center" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 transition-all duration-200">
                   <Linkedin className="w-3 h-3 text-white" fill="white" />
                 </motion.a>
               </motion.div>
@@ -118,13 +109,10 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200">
+                <motion.a href="https://www.instagram.com/fanamillingcenter/" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200">
                   <InstagramIcon className="w-3.5 h-3.5" />
                 </motion.a>
-                <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200">
-                  <TikTokIcon className="w-3.5 h-3.5" />
-                </motion.a>
-                <motion.a href="https://www.linkedin.com/company/fana-milling-center" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200">
+                <motion.a href="https://www.linkedin.com/company/fana-milling-center" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-all duration-200">
                   <Linkedin className="w-3.5 h-3.5 text-white" fill="white" />
                 </motion.a>
               </motion.div>
@@ -149,14 +137,14 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="relative h-14 w-40 sm:h-16 sm:w-48 lg:h-20 lg:w-56">
+                <div className="relative h-16 w-44 sm:h-20 sm:w-52 lg:h-24 lg:w-64">
                   <Image
                     src="/images/logo/logo-fana-1.png"
                     alt="FANA Milling Center Logo"
                     fill
                     className="object-contain"
                     priority
-                    sizes="192px"
+                    sizes="256px"
                   />
                 </div>
               </motion.div>
@@ -241,7 +229,7 @@ export default function Header() {
           <AnimatePresence>
             {isMenuOpen && (
               <motion.div 
-                className="lg:hidden py-4 border-t overflow-hidden"
+                className="lg:hidden py-4 border-t overflow-visible"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
@@ -283,7 +271,7 @@ export default function Header() {
                   initial: { opacity: 0, x: -20 },
                   animate: { opacity: 1, x: 0 }
                 }}
-                className="py-2"
+                className="py-2 relative"
               >
                 <LanguageSwitcher currentLocale={locale} />
               </motion.div>

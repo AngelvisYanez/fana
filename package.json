@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=18",
+    "npm": ">=8"
   },
   "scripts": {
     "dev": "next dev",
+    "dev:network": "next dev -H 0.0.0.0",
     "build": "next build",
-    "start": "next start",
+    "start": "node server.js",
+    "start:next": "next start",
+    "export": "next build && next export",
     "lint": "next lint",
-    "prod": "node server.js",
+    "prod": "node server.js", 
     "pm2:start": "pm2 start ecosystem.config.js",
     "pm2:stop": "pm2 stop fana-milling-center",
     "pm2:restart": "pm2 restart fana-milling-center",
@@ -26,7 +29,8 @@
     "next": "^14.2.33",
     "next-intl": "^4.3.12",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "resend": "^6.4.0"
   },
   "devDependencies": {
     "@types/node": "^24.6.0",

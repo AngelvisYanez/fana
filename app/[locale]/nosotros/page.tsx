@@ -7,6 +7,7 @@ import PageTransition from '@/components/PageTransition';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const params = useParams();
@@ -22,20 +23,42 @@ export default function AboutPage() {
       {/* Additional About Content */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Title */}
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-12">
               {t('history.title')}
             </h2>
-            <div className="prose prose-lg max-w-none text-gray-600">
-              <p className="mb-6">
-                {t('history.paragraph1')}
-              </p>
-              <p className="mb-6">
-                {t('history.paragraph2')}
-              </p>
-              <p>
-                {t('history.paragraph3')}
-              </p>
+            
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 lg:items-stretch">
+              {/* Image */}
+              <div className="order-2 lg:order-1">
+                <div className="relative w-full h-[400px] md:h-[500px] lg:h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/services/Historia.jpg"
+                    alt="Equipo FANA Milling Center"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                    priority
+                  />
+                </div>
+              </div>
+              
+              {/* Text Content */}
+              <div className="order-1 lg:order-2 flex flex-col justify-center">
+                <div className="prose prose-lg max-w-none text-gray-600">
+                  <p className="mb-6 text-base md:text-lg leading-relaxed">
+                    {t('history.paragraph1')}
+                  </p>
+                  <p className="mb-6 text-base md:text-lg leading-relaxed">
+                    {t('history.paragraph2')}
+                  </p>
+                  <p className="text-base md:text-lg leading-relaxed">
+                    {t('history.paragraph3')}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
