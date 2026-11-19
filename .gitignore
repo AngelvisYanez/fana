@@ -37,7 +37,7 @@ next-env.d.ts
 /docs
 
 # cPanel deployment
-.htaccess
+# .htaccess - NO ignorar, necesitamos subirlo al servidor
 /logs
 *.log
 

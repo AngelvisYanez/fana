@@ -13,12 +13,6 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// TikTok Icon Component
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="white">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-);
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations';
@@ -30,8 +24,7 @@ export default function Footer() {
   const footer = useTranslations('footer');
 
   const socialLinks = [
-    { Icon: InstagramIcon, href: '#' },
-    { Icon: TikTokIcon, href: '#' },
+    { Icon: InstagramIcon, href: 'https://www.instagram.com/fanamillingcenter/' },
     { Icon: Linkedin, href: 'https://www.linkedin.com/company/fana-milling-center' }
   ];
 
@@ -70,6 +63,8 @@ export default function Footer() {
                 <motion.a 
                   key={index}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-fana-primary transition-colors"
                   whileHover={{ scale: 1.2, y: -3 }}
                   whileTap={{ scale: 0.9 }}
@@ -85,7 +80,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-lg font-bold mb-6 font-heading tracking-tight">{footer('quickLinks')}</h3>
+            <h3 className="text-lg font-bold mb-6 font-heading tracking-tight text-white">{footer('quickLinks')}</h3>
             <motion.ul 
               className="space-y-3"
               variants={staggerContainer}
@@ -112,7 +107,7 @@ export default function Footer() {
 
           {/* Services */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-lg font-bold mb-6 font-heading tracking-tight">{footer('servicesTitle')}</h3>
+            <h3 className="text-lg font-bold mb-6 font-heading tracking-tight text-white">{footer('servicesTitle')}</h3>
             <motion.ul 
               className="space-y-3"
               variants={staggerContainer}
@@ -139,7 +134,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-lg font-bold mb-6 font-heading tracking-tight">{footer('contactTitle')}</h3>
+            <h3 className="text-lg font-bold mb-6 font-heading tracking-tight text-white">{footer('contactTitle')}</h3>
             <motion.ul 
               className="space-y-4"
               variants={staggerContainer}
@@ -158,7 +153,9 @@ export default function Footer() {
                 {
                   Icon: MapPinIcon,
                   primary: footer('contact.address.street'),
-                  secondary: footer('contact.address.city')
+                  secondary: footer('contact.address.city'),
+                  isLink: true,
+                  linkUrl: footer('contact.address.googleLink')
                 }
               ].map((item, index) => (
                 <motion.li 
@@ -170,7 +167,18 @@ export default function Footer() {
                   <item.Icon className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-gray-400 text-sm font-body">{item.primary}</p>
-                    <p className="text-gray-500 text-xs font-body">{item.secondary}</p>
+                    {item.isLink ? (
+                      <a 
+                        href={item.linkUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 text-xs font-body underline"
+                      >
+                        {item.secondary}
+                      </a>
+                    ) : (
+                      <p className="text-gray-500 text-xs font-body">{item.secondary}</p>
+                    )}
                   </div>
                 </motion.li>
               ))}

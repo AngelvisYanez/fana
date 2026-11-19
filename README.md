@@ -35,12 +35,28 @@ Sitio web profesional para FANA Milling Center, laboratorio dental de precisión
    npm install
    ```
 
-3. **Ejecutar en modo desarrollo**
+3. **Configurar variables de entorno**
+   
+   Crea un archivo `.env.local` en la raíz del proyecto:
+   ```bash
+   # Resend API Key para envío de emails
+   RESEND_API_KEY=YOUR_RESEND_API_KEY
+   
+   # Opcional: Activar emails de confirmación automáticos
+   # SEND_CONFIRMATION_EMAIL=true
+   ```
+   
+   ⚠️ **IMPORTANTE:** Si estás en Windows, asegúrate de que el archivo `.env.local` use fin de línea Unix (LF) y no Windows (CRLF). Puedes usar:
+   ```powershell
+   [System.IO.File]::WriteAllText('.env.local', "RESEND_API_KEY=YOUR_RESEND_API_KEY`n", [System.Text.UTF8Encoding]::new($false))
+   ```
+
+4. **Ejecutar en modo desarrollo**
    ```bash
    npm run dev
    ```
 
-4. **Abrir en el navegador**
+5. **Abrir en el navegador**
    ```
    http://localhost:3000
    ```
@@ -83,6 +99,33 @@ Sitio web profesional para FANA Milling Center, laboratorio dental de precisión
 - Metadata optimizada para motores de búsqueda
 - Títulos y descripciones relevantes
 - Estructura semántica HTML5
+
+### 📧 Formularios de Contacto con Resend
+- Formulario de contacto completo en página dedicada
+- Formulario de cotización rápida en Hero
+- Envío de emails automático con Resend
+- Validación de campos y manejo de errores
+- Confirmaciones automáticas opcionales
+
+#### 🔧 Cómo Funciona Resend
+
+**Modo Prueba (Testing):**
+- Resend asigna un email temporal: `onboarding@resend.dev`
+- Solo puedes enviar emails a tu cuenta registrada (la misma con la que te registraste en Resend)
+- Límite de 100 emails por día
+- **Configuración actual:** Envía desde `onboarding@resend.dev` a `info@fanamillingcenter.com`
+
+**Modo Producción:**
+Para enviar a cualquier email y desde tu dominio personalizado:
+1. Ve a [resend.com/domains](https://resend.com/domains)
+2. Agrega tu dominio `fanamillingcenter.com`
+3. Configura los registros DNS que Resend te proporciona
+4. Espera a que Resend verifique tu dominio (puede tardar unos minutos)
+5. Actualiza el `from` en `app/api/contact/route.ts` de `onboarding@resend.dev` a `noreply@fanamillingcenter.com`
+
+**Nota Importante:** 
+- Si el API key pertenece a otra cuenta, el destinatario debe ser el email registrado en esa cuenta
+- Para verificar qué email está registrado, revisa tu cuenta en [resend.com](https://resend.com)
 
 ## 🎨 Componentes Principales
 
@@ -207,8 +250,8 @@ Consulta la documentación detallada de deployment en:
 - **Estado:** ACTIVO
 - **Fecha de registro:** 09/10/2025
 - **Fecha de vencimiento:** 31/12/2030
-- **Teléfono:** +1 (832) 897-8335
-- **Email:** info@fanamilling.com
+- **Teléfono:** +1 (786) 383-2468
+- **Email:** info@fanamillingcenter.com
 - **Dirección:** 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA
 - **Condado:** MIAMI-DADE
 

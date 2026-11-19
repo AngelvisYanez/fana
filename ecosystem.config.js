@@ -14,7 +14,9 @@ module.exports = {
         // Limitar memoria de Node.js para evitar errores OOM
         NODE_OPTIONS: '--max-old-space-size=1536 --max-semi-space-size=64',
         // Optimizaciones para reducir uso de memoria
-        NEXT_TELEMETRY_DISABLED: '1'
+        NEXT_TELEMETRY_DISABLED: '1',
+        // Resend API Key
+        RESEND_API_KEY: process.env.RESEND_API_KEY
       },
       error_file: './logs/pm2-error.log',
       out_file: './logs/pm2-out.log',

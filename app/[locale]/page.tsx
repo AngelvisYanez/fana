@@ -336,10 +336,23 @@ export default function Home() {
                 { 
                   Icon: PhoneIcon, 
                   title: t('cta2.contact.phone.title'), 
-                  text: t('cta2.contact.phone.value')
+                  text: t('cta2.contact.phone.value'),
+                  isLink: false
                 },
-                { Icon: EnvelopeIcon, title: t('cta2.contact.email.title'), text: t('cta2.contact.email.value') },
-                { Icon: MapPinIcon, title: t('cta2.contact.location.title'), text: t('cta2.contact.location.value') }
+                { 
+                  Icon: EnvelopeIcon, 
+                  title: t('cta2.contact.email.title'), 
+                  text: t('cta2.contact.email.value'),
+                  isLink: false
+                },
+                { 
+                  Icon: MapPinIcon, 
+                  title: t('cta2.contact.location.title'), 
+                  text: t('cta2.contact.location.value'),
+                  isLink: true,
+                  linkText: t('cta2.contact.location.linkText'),
+                  linkUrl: t('cta2.contact.location.googleLink')
+                }
               ].map((item, index) => (
                 <motion.div 
                   key={index}
@@ -360,7 +373,17 @@ export default function Home() {
                     <item.Icon className="w-12 h-12 text-fana-primary" />
                   </motion.div>
                   <h3 className="font-bold mb-2 text-fana-primary">{item.title}</h3>
-                  <p className="text-fana-navy text-sm">{item.text}</p>
+                  <p className="text-fana-navy text-sm mb-1">{item.text}</p>
+                  {item.isLink && (
+                    <a 
+                      href={item.linkUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-fana-primary hover:text-fana-navy text-sm underline inline-block"
+                    >
+                      {item.linkText}
+                    </a>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

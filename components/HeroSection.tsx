@@ -14,6 +14,11 @@ export default function HeroSection() {
     email: '',
     services: [] as string[]
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -31,10 +36,77 @@ export default function HeroSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(t('form.successMessage'));
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      // Verificar que al menos un servicio esté seleccionado
+      if (formData.services.length === 0) {
+        setSubmitStatus({
+          type: 'error',
+          message: t('form.error.serviceRequired')
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const response = await fetch(`${window.location.origin}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: '',
+          message: `Solicitud de cotización desde el formulario principal para los siguientes servicios: ${formData.services.join(', ')}`,
+          service: formData.services.join(', ')
+        }),
+      });
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('Respuesta no es JSON:', text);
+        throw new Error(t('form.error.server'));
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || t('form.error.send'));
+      }
+
+      // Éxito
+      setSubmitStatus({
+        type: 'success',
+        message: data.message || t('form.successMessage')
+      });
+
+      // Limpiar formulario
+      setFormData({
+        fullName: '',
+        phone: '',
+        email: '',
+        services: []
+      });
+
+      // Ocultar mensaje después de 5 segundos
+      setTimeout(() => {
+        setSubmitStatus({ type: null, message: '' });
+      }, 5000);
+
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : t('form.error.sendRetry')
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -115,21 +187,21 @@ export default function HeroSection() {
 
           {/* Right Content - Quote Form */}
           <motion.div 
-            className="lg:ml-auto w-full max-w-md"
+            className="lg:ml-auto w-full max-w-md mb-8 md:mb-12 lg:mb-16"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <motion.div 
-              className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8"
+              className="bg-white rounded-2xl shadow-2xl px-3 pt-3 pb-7 sm:px-4 sm:pt-4 sm:pb-8 md:px-6 md:pt-6 md:pb-12 lg:px-8 lg:pt-8 lg:pb-14"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 font-heading tracking-tight">
+              <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-6 font-heading tracking-tight">
                 {t('form.title')}
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                 {/* Full Name */}
                 <div>
                   <input
@@ -139,7 +211,7 @@ export default function HeroSection() {
                     onChange={handleInputChange}
                     placeholder={t('form.fullName')}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent transition-all outline-none font-body text-gray-700 placeholder-gray-500"
+                    className="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent transition-all outline-none font-body text-gray-700 placeholder-gray-500"
                   />
                 </div>
 
@@ -152,7 +224,7 @@ export default function HeroSection() {
                     onChange={handleInputChange}
                     placeholder={t('form.phone')}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent transition-all outline-none font-body text-gray-700 placeholder-gray-500"
+                    className="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent transition-all outline-none font-body text-gray-700 placeholder-gray-500"
                   />
                 </div>
 
@@ -165,20 +237,20 @@ export default function HeroSection() {
                     onChange={handleInputChange}
                     placeholder={t('form.email')}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent transition-all outline-none font-body text-gray-700 placeholder-gray-500"
+                    className="w-full px-3 py-2 md:px-4 md:py-2.5 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent transition-all outline-none font-body text-gray-700 placeholder-gray-500"
                   />
                 </div>
 
                 {/* Service Options */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-body">
+                  <label className="block text-xs md:text-sm font-semibold text-gray-700 mb-2 md:mb-3 font-body">
                     {t('form.serviceOptions')}
                   </label>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 md:gap-3">
                     {services.map((service) => (
                       <motion.label
                         key={service.id}
-                        className={`flex items-center p-3 border-2 rounded-lg cursor-pointer transition-all ${
+                        className={`flex items-center p-2 md:p-2.5 border-2 rounded-lg cursor-pointer transition-all ${
                           formData.services.includes(service.id)
                             ? 'border-fana-primary bg-fana-secondary/20'
                             : 'border-gray-200 hover:border-gray-300'
@@ -190,9 +262,9 @@ export default function HeroSection() {
                           type="checkbox"
                           checked={formData.services.includes(service.id)}
                           onChange={() => handleServiceToggle(service.id)}
-                          className="w-4 h-4 text-fana-primary rounded focus:ring-2 focus:ring-fana-primary"
+                          className="w-3.5 h-3.5 md:w-4 md:h-4 text-fana-primary rounded focus:ring-2 focus:ring-fana-primary"
                         />
-                        <span className="ml-2 text-sm text-gray-700 font-body">{service.label}</span>
+                        <span className="ml-1.5 md:ml-2 text-xs md:text-sm text-gray-700 font-body">{service.label}</span>
                       </motion.label>
                     ))}
                   </div>
@@ -201,12 +273,28 @@ export default function HeroSection() {
                 {/* Submit Button */}
               <motion.button
                 type="submit"
-                className="w-full bg-fana-primary text-white py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-fana-navy transition-colors font-body tracking-wide"
-                whileHover={{ scale: 1.02, boxShadow: "0 20px 40px -10px rgba(18, 93, 163, 0.5)" }}
-                whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting}
+                className="w-full bg-fana-primary text-white py-2.5 md:py-3 lg:py-4 rounded-lg font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:bg-fana-navy transition-colors font-body tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+                whileHover={!isSubmitting ? { scale: 1.02, boxShadow: "0 20px 40px -10px rgba(18, 93, 163, 0.5)" } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
               >
-                {t('form.submitButton')}
+                {isSubmitting ? 'Enviando...' : t('form.submitButton')}
               </motion.button>
+
+              {/* Status Messages */}
+              {submitStatus.type && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mt-4 p-4 rounded-lg ${
+                    submitStatus.type === 'success'
+                      ? 'bg-green-50 border border-green-200 text-green-800'
+                      : 'bg-red-50 border border-red-200 text-red-800'
+                  }`}
+                >
+                  <p className="text-sm font-medium">{submitStatus.message}</p>
+                </motion.div>
+              )}
             </form>
           </motion.div>
           </motion.div>

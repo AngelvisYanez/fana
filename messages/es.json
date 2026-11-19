@@ -177,6 +177,8 @@
     "form": {
       "title": "Subir Archivos Digitales y Cotización Express",
       "subtitle": "Completa el formulario y adjunta tus archivos CAD/CAM para recibir una cotización personalizada",
+      "sendMessage": "Envíanos un Mensaje",
+      "fullName": "Nombre Completo",
       "clinicName": "Nombre (Clínica/Laboratorio)",
       "email": "Email (Profesional)",
       "phone": "Teléfono",
@@ -189,34 +191,54 @@
         "provisional": "Provisional",
         "other": "Otro"
       },
+      "serviceType": "Tipo de Servicio",
+      "selectService": "Selecciona un servicio",
+      "services": {
+        "estructuras": "Estructuras de Implantes",
+        "estetica": "Estética Avanzada",
+        "suministros": "Suministros",
+        "otro": "Otro"
+      },
       "files": "Archivos Digitales (STL, PLY, OBJ, etc.)",
       "fileUpload": "Haz clic para subir archivos",
       "fileDragDrop": "o arrastra y suelta los archivos aquí",
       "filesSelected": "archivo(s) seleccionado(s)",
-      "message": "Mensaje Adicional",
-      "messagePlaceholder": "Describe tu caso, especificaciones especiales, urgencia, etc.",
-      "submit": "Enviar Solicitud",
-      "submitting": "Enviando..."
+      "message": "Mensaje",
+      "messagePlaceholder": "Describe tu proyecto o consulta...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Enviando...",
+      "contactDirect": "Contacto Directo",
+      "success": "¡Gracias por tu mensaje! Te contactaremos pronto.",
+      "error": {
+        "server": "Error del servidor. Por favor intenta más tarde.",
+        "send": "Error al enviar el mensaje",
+        "sendRetry": "Error al enviar el mensaje. Por favor intenta de nuevo.",
+        "serviceRequired": "Por favor selecciona al menos un servicio de interés."
+      }
     },
     "info": {
-      "title": "Datos del Laboratorio",
+      "title": "Información de Contacto",
       "subtitle": "Múltiples canales de contacto para atenderte de la mejor manera",
       "phone": {
-        "title": "Teléfono B2B",
-        "number": "+1 (832) 897-8335",
+        "title": "Teléfono",
+        "titleB2B": "Teléfono B2B",
+        "number": "+1 (786) 881-7017",
         "hours": "Lunes a Viernes: 8:00 - 18:00"
       },
       "email": {
-        "title": "Email Profesional",
-        "address": "info@fanamilling.com",
+        "title": "Email",
+        "titleProfessional": "Email Profesional",
+        "address": "info@fanamillingcenter.com",
         "response": "Respuesta en 24h"
       },
       "address": {
-        "title": "Dirección Física",
-        "street": "8501 NW 107TH CT. UNIT 3",
-        "city": "MIAMI, FL 33178",
-        "postal": "MIAMI-DADE COUNTY, USA",
-        "visits": "Visitas con cita previa"
+        "title": "Ubícanos",
+        "titlePhysical": "Dirección Física",
+        "street": "Area Broward, Miami Dade, Palm Beach",
+        "city": "",
+        "postal": "",
+        "visits": "Enlace de Google",
+        "googleLink": "https://share.google/a70a7PoUEmP3Fhkcu3"
       }
     },
     "location": {
@@ -487,8 +509,8 @@
   },
   "newDesign": {
     "header": {
-      "phone": "+1 (832) 897-8335",
-      "email": "info@fanamilling.com",
+      "phone": "+1 (786) 881-7017",
+      "email": "info@fanamillingcenter.com",
       "address": "8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178",
       "cta": "Obtén Cotización"
     },
@@ -653,15 +675,17 @@
         "contact": {
           "phone": {
             "title": "Llámanos",
-            "value": "+1 (832) 897-8335"
+            "value": "+1 (786) 881-7017"
           },
           "email": {
             "title": "Escríbenos",
-            "value": "info@fanamilling.com"
+            "value": "info@fanamillingcenter.com"
           },
           "location": {
             "title": "Visítanos",
-            "value": "8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178"
+            "value": "Area Broward, Miami Dade, Palm Beach",
+            "linkText": "Enlace de Google",
+            "googleLink": "https://share.google/a70a7PoUEmP3Fhkcu3"
           }
         },
         "contactButton": "Contactar Ahora"
@@ -702,6 +726,8 @@
         "materialsTitle": "Materiales Disponibles:",
         "materials": {
           "zirconia": "Zirconio",
+          "titanium": "Titanio",
+          "chromeCobalt": "Cromo Cobalto",
           "pmma": "PMMA"
         },
         "imageAlt": "Estructura de Implante",
@@ -751,16 +777,17 @@
     "contactTitle": "Contacto",
     "contact": {
       "phone": {
-        "number": "+1 (832) 897-8335",
+        "number": "+1 (786) 881-7017",
         "hours": "Lun-Vie: 8:00 - 18:00 EST"
       },
       "email": {
-        "address": "info@fanamilling.com",
+        "address": "info@fanamillingcenter.com",
         "response": "Respuesta en 24h"
       },
       "address": {
-        "street": "8501 NW 107TH CT. UNIT 3",
-        "city": "MIAMI, FL 33178, USA"
+        "street": "Area Broward, Miami Dade, Palm Beach",
+        "city": "Enlace de Google",
+        "googleLink": "https://share.google/a70a7PoUEmP3Fhkcu3"
       }
     },
     "copyright": "Todos los derechos reservados.",
@@ -783,5 +810,212 @@
       "contactButton": "Contactar Ahora",
       "servicesButton": "Ver Servicios"
     }
+  },
+  "legal": {
+    "privacy": {
+      "badge": "Información Legal",
+      "title": "Política de Privacidad",
+      "subtitle": "Información sobre el tratamiento de datos personales conforme al RGPD",
+      "header": {
+        "title": "POLÍTICA DE PRIVACIDAD (RGPD)",
+        "lastUpdate": "Fecha de última actualización: Octubre de 2025"
+      },
+      "sections": {
+        "responsible": {
+          "title": "Responsable del Tratamiento",
+          "content": "El Responsable del tratamiento de sus datos es FANA MILLING CENTER (Nombre ficticio de FANA GROUP CORP), con domicilio en 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA, Condado de Miami-Dade, y correo electrónico de contacto: info@fanamillingcenter.com."
+        },
+        "purpose": {
+          "title": "Finalidad del Tratamiento",
+          "intro": "En FANA Milling Center tratamos los datos que nos facilita con las siguientes finalidades:",
+          "items": {
+            "service": "Prestación del Servicio B2B: Gestionar la recepción de archivos digitales (STL, CAD/CAM), elaborar presupuestos, fabricar las prótesis dentales solicitadas y gestionar el envío de suministros.",
+            "billing": "Facturación y Gestión Contractual: Administrar la relación comercial, facturar los servicios y gestionar pagos.",
+            "communication": "Comunicaciones Profesionales: Enviar información técnica, actualizaciones de productos, o responder consultas profesionales solicitadas por el cliente.",
+            "marketing": "Marketing (B2B): Enviar comunicaciones comerciales sobre nuestros productos, ofertas o eventos, solo si el profesional ha dado su consentimiento expreso."
+          }
+        },
+        "legalBasis": {
+          "title": "Base Legal para el Tratamiento",
+          "intro": "La base legal para el tratamiento de sus datos es:",
+          "items": {
+            "contract": "Ejecución de un Contrato: Para las finalidades 1 y 2 (fabricación y facturación de servicios).",
+            "legitimate": "Interés Legítimo: Para la finalidad 3 (comunicación esencial para el servicio).",
+            "consent": "Consentimiento del Interesado: Para la finalidad 4 (marketing B2B) y el tratamiento de datos de salud contenidos en los archivos CAD/CAM (tratamiento indirecto bajo el encargo del cliente)."
+          }
+        },
+        "dataCategories": {
+          "title": "Datos Recogidos y Categorías",
+          "intro": "Tratamos las siguientes categorías de datos:",
+          "items": {
+            "professional": "Datos de Identificación Profesional: Nombre, apellidos, NIF/CIF, número de colegiado, nombre de la clínica/laboratorio, dirección postal, teléfono y email.",
+            "transactional": "Datos Transaccionales: Información de pedidos, pagos y facturación.",
+            "health": "Datos de Salud (Datos Especialmente Protegidos): Los archivos de diseño CAD/CAM (STL, OBJ, etc.) que nos remite la clínica contienen datos relativos a la salud bucal del paciente. En este caso, FANA Milling Center actúa como Encargado del Tratamiento y el cliente (la clínica/laboratorio) es el Responsable. Aplicamos medidas de seguridad extremas para su custodia y eliminación tras la finalización del servicio."
+          }
+        },
+        "recipients": {
+          "title": "Destinatarios de los Datos",
+          "intro": "Sus datos no se cederán a terceros, salvo obligación legal. Podrán tener acceso a sus datos los siguientes terceros como Encargados del Tratamiento bajo un contrato de servicios:",
+          "items": {
+            "hosting": "Proveedores de hosting y servicios en la nube.",
+            "transport": "Agencias de transporte para la entrega de los pedidos."
+          }
+        },
+        "rights": {
+          "title": "Derechos del Interesado",
+          "content": "Usted tiene derecho a ejercer los derechos de Acceso, Rectificación, Supresión, Oposición, Limitación del Tratamiento y Portabilidad de sus datos ante FANA Milling Center, enviando un correo electrónico a info@fanamillingcenter.com."
+        }
+      },
+      "contact": {
+        "title": "¿Tienes Preguntas?",
+        "subtitle": "Si tienes alguna consulta sobre nuestra política de privacidad o el tratamiento de tus datos, no dudes en contactarnos.",
+        "button": "Contactar"
+      }
+    },
+    "terms": {
+      "badge": "Información Legal",
+      "title": "Términos y Condiciones",
+      "subtitle": "Condiciones del servicio B2B para clínicas y laboratorios dentales",
+      "header": {
+        "title": "TÉRMINOS Y CONDICIONES DEL SERVICIO B2B",
+        "company": "Empresa: FANA GROUP CORP (Nombre ficticio: FANA MILLING CENTER)",
+        "registration": "Número de registro: G25000131466",
+        "status": "Estado: ACTIVO",
+        "regDate": "Fecha de registro: 09/10/2025",
+        "expDate": "Fecha de vencimiento: 31/12/2030",
+        "address": "Domicilio: 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA",
+        "county": "Condado: MIAMI-DADE",
+        "lastUpdate": "Fecha de última actualización: Octubre de 2025"
+      },
+      "sections": {
+        "object": {
+          "title": "Objeto",
+          "content": "El presente documento establece los términos y condiciones que rigen la prestación de servicios de fresado CNC CAD/CAM, fabricación de prótesis dentales y venta de suministros B2B por parte de FANA Milling Center (en adelante, \"El Laboratorio\") a clínicas y laboratorios dentales (en adelante, \"El Cliente\")."
+        },
+        "services": {
+          "title": "Servicios Ofrecidos",
+          "intro": "El Laboratorio ofrece servicios especializados en:",
+          "items": {
+            "milling": "Fresado de Precisión: Fabricación de estructuras de implantes, coronas, puentes y restauraciones estéticas mediante tecnología CNC de 5 ejes y con una precisión garantizada de ±5μm.",
+            "supplies": "Venta de Suministros: Comercialización de bloques, discos y consumibles certificados (Zirconio, Disilicato, PMMA, etc.)."
+          }
+        },
+        "process": {
+          "title": "Proceso de Pedido y Fabricación",
+          "items": {
+            "order": "Envío del Caso: El Cliente enviará el diseño digital (archivo STL/CAD) a través de la plataforma web o por los canales autorizados. El Cliente es el único responsable de la exactitud del diseño, los márgenes y la toma de color especificada.",
+            "quote": "Presupuesto y Confirmación: El Laboratorio emitirá un presupuesto y el plazo de entrega estimado (generalmente 24-48 horas a partir de la confirmación). La fabricación solo comenzará tras la aceptación del presupuesto por parte del Cliente.",
+            "delivery": "Plazos de Entrega: Los plazos de entrega son estimados y FANA hará todo lo posible por cumplirlos. No obstante, no se aceptan responsabilidades ni compensaciones económicas por retrasos debidos a causas ajenas (transporte, fallos de software, fuerza mayor)."
+          }
+        },
+        "warranty": {
+          "title": "Garantía y Limitación de Responsabilidad",
+          "items": {
+            "product": "Garantía del Producto: El Laboratorio garantiza que todas las prótesis y estructuras cumplen con la precisión de ±5μm y están fabricadas con materiales certificados ISO 13485.",
+            "exclusions": "Exclusiones de Garantía: La garantía no cubrirá fallos o ajustes necesarios que sean consecuencia de:",
+            "exclusionItems": {
+              "design": "Errores en la toma de impresión o diseño CAD suministrado por el Cliente.",
+              "manipulation": "Manipulación, alteración o tallado posterior de la pieza por parte del Cliente o terceros.",
+              "misuse": "Uso inadecuado o accidentes."
+            }
+          }
+        },
+        "jurisdiction": {
+          "title": "Jurisdicción",
+          "content": "Para la resolución de cualquier conflicto o litigio derivado de la interpretación o ejecución de estos términos, ambas partes se someten a los Juzgados y Tribunales de la ciudad de Madrid, España, con renuncia expresa a cualquier otro fuero."
+        }
+      },
+      "contact": {
+        "title": "¿Necesitas Aclaraciones?",
+        "subtitle": "Si tienes alguna consulta sobre nuestros términos y condiciones o necesitas más información sobre nuestros servicios B2B, nuestro equipo está disponible para ayudarte.",
+        "button": "Contactar"
+      }
+    },
+    "cookies": {
+      "badge": "Información Legal",
+      "title": "Política de Cookies",
+      "subtitle": "Información sobre el uso de cookies conforme a la LSSI-CE",
+      "header": {
+        "title": "POLÍTICA DE COOKIES",
+        "company": "FANA GROUP CORP (Nombre ficticio: FANA MILLING CENTER)",
+        "registration": "Número de registro: G25000131466",
+        "address": "Domicilio: 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA",
+        "county": "Condado: MIAMI-DADE",
+        "lastUpdate": "Fecha de última actualización: Octubre de 2025"
+      },
+      "sections": {
+        "whatAre": {
+          "title": "¿Qué son las Cookies?",
+          "content1": "Una cookie es un pequeño archivo de texto que un sitio web, como FANA Milling Center, almacena en su navegador (ordenador, móvil, tableta, etc.) cuando usted lo visita.",
+          "content2": "Las cookies son herramientas esenciales para la prestación de muchos servicios de la sociedad de la información. Permiten a la página web almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información obtenida, pueden utilizarse para reconocer al usuario, mejorar el servicio ofrecido o personalizar la visualización de contenidos."
+        },
+        "types": {
+          "title": "Tipos de Cookies Utilizadas en Nuestro Sitio Web y sus Finalidades",
+          "intro": "En nuestro sitio web, utilizamos cookies propias y de terceros con diferentes finalidades:",
+          "technical": {
+            "title": "Cookies Técnicas (Necesarias):",
+            "content": "Estas cookies son estrictamente necesarias para el correcto funcionamiento de la web B2B. Permiten la gestión de la sesión, el inicio de sesión del profesional en el área privada (\"Acceso a Profesionales\"), el correcto funcionamiento de la plataforma de subida de archivos CAD/CAM y el carrito de compra.",
+            "consent": "Consentimiento: No requieren consentimiento y su base legal es el interés legítimo o la ejecución de un contrato."
+          },
+          "preferences": {
+            "title": "Cookies de Preferencias o Personalización:",
+            "content": "Permiten recordar información sobre las elecciones del usuario, como el idioma o la configuración regional, para ofrecer una experiencia de navegación más cómoda y personalizada.",
+            "consent": "Consentimiento: Su instalación requiere su consentimiento previo."
+          },
+          "analytics": {
+            "title": "Cookies Analíticas o de Medición:",
+            "content": "Nos permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de cómo los profesionales utilizan nuestros servicios. La información obtenida se utiliza para mejorar la oferta de servicios y el rendimiento de la web. Ejemplo de estas cookies son las utilizadas por Google Analytics.",
+            "consent": "Consentimiento: Su instalación requiere su consentimiento."
+          },
+          "advertising": {
+            "title": "Cookies de Publicidad Comportamental:",
+            "content": "Almacenan información sobre el comportamiento de los usuarios (hábitos de navegación) para desarrollar un perfil específico que permite mostrar publicidad B2B relevante y personalizada fuera de nuestro sitio.",
+            "consent": "Consentimiento: Su instalación requiere su consentimiento."
+          }
+        },
+        "thirdParty": {
+          "title": "Cookies de Terceros",
+          "content": "Nuestro sitio web utiliza servicios de terceros que pueden instalar cookies para fines analíticos o publicitarios. Los principales terceros que pueden instalar cookies en su equipo son Google Analytics y Google Ads."
+        },
+        "consent": {
+          "title": "Consentimiento y Gestión de Cookies",
+          "obtaining": {
+            "title": "Obtención del Consentimiento:",
+            "content": "De acuerdo con la legislación vigente, excepto las cookies estrictamente necesarias (Técnicas), la instalación de cualquier otro tipo de cookie requiere su consentimiento expreso. Al acceder a nuestra web, se le mostrará un aviso de cookies (banner) a través del cual podrá aceptar, rechazar o configurar su uso."
+          },
+          "revocation": {
+            "title": "Revocación y Eliminación:",
+            "content1": "Usted puede, en cualquier momento, cambiar o revocar su consentimiento previamente otorgado a través del panel de configuración de cookies disponible en la web.",
+            "content2": "También puede desactivar la instalación de cookies directamente a través de las opciones de configuración de su navegador:",
+            "browsers": {
+              "chrome": "Google Chrome: Puede gestionar las cookies aquí.",
+              "firefox": "Mozilla Firefox: Puede gestionar las cookies aquí.",
+              "safari": "Safari: Puede gestionar las cookies aquí.",
+              "edge": "Microsoft Edge: Puede gestionar las cookies aquí."
+            },
+            "important": "Importante: Tenga en cuenta que la desactivación de algunas cookies puede limitar o impedir el acceso a funcionalidades clave de nuestra plataforma B2B, como el inicio de sesión o la subida de archivos."
+          }
+        },
+        "retention": {
+          "title": "Retención y Contacto",
+          "content1": "FANA Milling Center conservará la información recabada por las cookies por un plazo limitado (normalmente no superior a 2 años para las cookies persistentes).",
+          "content2": "Si tiene alguna duda sobre nuestra Política de Cookies, puede contactarnos a través del correo electrónico info@fanamillingcenter.com."
+        }
+      },
+      "contact": {
+        "title": "¿Tienes Preguntas sobre Cookies?",
+        "subtitle": "Si necesitas más información sobre nuestra política de cookies o quieres gestionar tus preferencias, nuestro equipo está disponible para ayudarte.",
+        "button": "Contactar"
+      }
+    }
+  },
+  "popup": {
+    "title": "¡Primer Pedido con 40% de Descuento!",
+    "description": "¡Reclama ahora un <span>40% de descuento total</span> en toda tu primera orden con nosotros! Válido sin importar el volumen.",
+    "button": "Solicitar cotización",
+    "disclaimer": "* Oferta válida solo para nuevos clientes en su primera orden",
+    "close": "Cerrar",
+    "whatsappMessage": "¡Hola! Acabo de reclamar el cupón del 40% para mi primera orden. Me interesa cotizar con ustedes, cuáles son los costos?",
+    "clientName": "Cliente desde pop-up"
   }
 }
