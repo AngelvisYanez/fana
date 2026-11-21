@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import '../globals.css';
-import DiscountPopup from '@/components/DiscountPopup';
+import FloatingCallButton from '@/components/FloatingCallButton';
 
 export const metadata: Metadata = {
   title: 'FANA Milling Center | Laboratorio Dental CAD/CAM',
@@ -38,7 +38,7 @@ export default async function LocaleLayout({
       <body className="antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
-          <DiscountPopup />
+          <FloatingCallButton />
         </NextIntlClientProvider>
       </body>
     </html>

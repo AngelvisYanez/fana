@@ -65,7 +65,7 @@ export default function AboutPage() {
       </section>
 
       {/* Call To Action Section */}
-      <section className="bg-gradient-to-r from-fana-secondary to-fana-white py-12">
+      <section className="bg-fana-secondary py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold text-fana-navy mb-4">

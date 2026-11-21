@@ -494,11 +494,11 @@
       "contact": "Contact",
       "quickLinks": "Quick Links",
       "links": {
+        "404": "404 Page",
         "home": "Home",
         "about": "About us",
         "quote": "Get a quote",
-        "pricing": "Pricing plans",
-        "404": "404 Page"
+        "pricing": "Pricing plans"
       },
       "copyright": "© 2025 FANA Milling Center - Design & Developed by FANA.",
       "legal": {
@@ -552,6 +552,92 @@
         }
       }
     },
+    "aboutShowcase": {
+      "label": "About FANA /",
+      "title": "A dental lab built around the way you work",
+      "description": "A team of dental technicians and CNC specialists turning digital designs into prostheses that seat without chair-side adjustments.",
+      "cta": "Learn more",
+      "labAlt": "FANA dental milling laboratory with 5-axis CNC machines",
+      "cards": {
+        "precision": {
+          "title": "Digital workflow",
+          "subtitle": "From scan to finished piece"
+        },
+        "machines": {
+          "title": "In-house milling",
+          "subtitle": "Full control of production"
+        }
+      },
+      "stats": {
+        "satisfaction": {
+          "value": "4+",
+          "label": "Years of experience"
+        },
+        "delivery": {
+          "value": "CAD/CAM",
+          "label": "Digital workflow"
+        },
+        "precision": {
+          "value": "In-house",
+          "label": "Production control"
+        }
+      }
+    },
+    "servicesShowcase": {
+      "label": "Our Services /",
+      "title": "Discover our signature milling services",
+      "description": "From single crowns to full-arch implant frameworks, we mill what your practice needs in zirconia, titanium, CrCo and more.",
+      "trustValue": "500+",
+      "trustLabel": "Laboratories",
+      "trustText": "Clinics and laboratories across South Florida send us their most demanding cases.",
+      "prev": "Previous",
+      "next": "Next",
+      "viewService": "View service",
+      "items": {
+        "structures": "Implant Structures",
+        "aesthetics": "Advanced Aesthetics",
+        "milling": "General Milling",
+        "supplies": "B2B Supplies"
+      }
+    },
+    "heroV2": {
+      "title": "Precision dental milling, made to measure.",
+      "description": "CAD/CAM laboratory with 5-axis CNC technology and ±5μm tolerances. Exceptional results in 24-48h for clinics and laboratories.",
+      "cta": "Get a quote",
+      "menuOpen": "Open menu",
+      "menuClose": "Close menu",
+      "prev": "Previous",
+      "next": "Next",
+      "slideLabel": "Service",
+      "experience": "24-48h delivery",
+      "modalClose": "Close",
+      "slides": {
+        "structures": {
+          "chip": "Implant Structures",
+          "title": "Implant Structures",
+          "subtitle": "Titanium and CrCo",
+          "meta": "±5μm precision"
+        },
+        "aesthetics": {
+          "chip": "Advanced Aesthetics",
+          "title": "Advanced Aesthetics",
+          "subtitle": "Zirconia and Disilicate",
+          "meta": "Natural finish"
+        },
+        "milling": {
+          "chip": "General Milling",
+          "title": "General Milling",
+          "subtitle": "5-axis CNC",
+          "meta": "Crowns and bridges"
+        },
+        "supplies": {
+          "chip": "B2B Supplies",
+          "title": "B2B Supplies",
+          "subtitle": "Milling materials",
+          "meta": "For laboratories"
+        }
+      }
+    },
     "about": {
       "badge": "ABOUT US",
       "title": {
@@ -573,27 +659,33 @@
       "service4": "Quality Control"
     },
     "services": {
-      "badge": "OUR SERVICES",
+      "badge": "OUR PROCESS",
       "title": {
-        "part1": "A Wide Range of Services",
-        "part2": "for Your Best Smile"
+        "part1": "From Digital Design",
+        "part2": "to the Finished Smile"
       },
       "cta": "Explore All Services",
       "service1": {
-        "title": "General Milling",
-        "description": "High-precision CNC milling services for dental prosthetics. We use 5-axis technology with micrometric tolerances to guarantee exceptional results in every project."
+        "title": "Digital Design",
+        "description": "We work from your scans and CAD files, reviewing every case with you before it reaches the machine."
       },
       "service2": {
-        "title": "Implant Structures",
-        "description": "Specialized milling of structures in Titanium and Chromium-Cobalt with maximum precision. Each structure is designed and manufactured following the strictest quality standards."
+        "title": "Precision Milling",
+        "description": "Our CNC machines turn the approved design into zirconia, titanium or CrCo pieces with tight tolerances."
       },
       "service3": {
-        "title": "Advanced Aesthetics",
-        "description": "Specialists in high-aesthetic materials such as multilayer Zirconia and Lithium Disilicate, offering maximum naturalness and resistance in dental restorations."
+        "title": "Finishing & Inspection",
+        "description": "Each piece is finished by hand, inspected and carefully packed so it arrives ready to seat."
       },
       "learnMore": "Learn more"
     },
     "homePage": {
+      "videoExpand": {
+        "title": "Precision you can see",
+        "scrollHint": "Scroll to discover",
+        "heading": "CAD/CAM technology at the service of your smile",
+        "text": "5-axis CNC milling, premium materials and ±5µm tolerances in every piece."
+      },
       "stats": {
         "completedCases": {
           "value": "500+",
@@ -609,28 +701,29 @@
         },
         "precision": {
           "value": "5μm",
-          "label": "Micrometric Precision"
+          "label": "Milling tolerance"
         }
       },
       "whyChooseUs": {
+        "label": "Why FANA",
         "title": "Why Choose FANA?",
-        "subtitle": "Cutting-edge technology at the service of dental excellence",
+        "subtitle": "Six reasons laboratories and clinics keep sending us their cases.",
         "features": {
           "precision": {
             "title": "Micrometric Precision",
-            "description": "5-axis CNC milling with ±5μm tolerances for perfect results in every piece."
+            "description": "Every piece is checked against the digital design, so it seats right the first time."
           },
           "delivery": {
             "title": "Fast Delivery",
-            "description": "Optimized delivery times of 24-48h without compromising work quality."
+            "description": "Short, predictable turnaround times that never come at the expense of the work."
           },
           "materials": {
             "title": "Premium Materials",
-            "description": "We only work with certified and biocompatible materials from the best brands."
+            "description": "We only work with certified, biocompatible materials from leading brands."
           },
           "technology": {
             "title": "Advanced Technology",
-            "description": "State-of-the-art equipment with certified CAD/CAM software."
+            "description": "Modern equipment and an open workflow that adapts to the way you already design."
           },
           "support": {
             "title": "24/7 Technical Support",
@@ -638,40 +731,58 @@
           },
           "quality": {
             "title": "Quality Guarantee",
-            "description": "ISO 13485 certification and exhaustive quality control in every project."
+            "description": "Strict inspection at every stage, from the first scan to the final packaging."
           }
+        },
+        "seal": {
+          "value": "ISO",
+          "label": "13485 certified"
         }
       },
       "testimonials": {
+        "label": "Testimonials",
         "title": "What Our Clients Say",
         "subtitle": "The satisfaction of our clients is our greatest reward",
         "items": {
           "maria": {
             "name": "Dr. María González",
             "position": "Premium Dental Clinic",
-            "text": "FANA's quality and precision are exceptional. Their zirconia structures are perfect and the delivery time is incredible."
+            "text": "Their zirconia structures arrive finished and ready to seat. Our chair-side adjustments have dropped to almost nothing."
           },
           "carlos": {
             "name": "Dr. Carlos Ruiz",
             "position": "Ruiz Dental Laboratory",
-            "text": "FANA's technical service is exceptional. They are always available to answer any questions."
+            "text": "Whenever we have a doubt about a case, their technical team answers right away. It feels like an extension of our own lab."
           },
           "ana": {
             "name": "Dr. Ana Martínez",
             "position": "Advanced Dental Center",
-            "text": "The 5-micron precision they offer is impressive. Our patients notice the difference."
+            "text": "Our patients notice the difference: natural color, clean margins and a fit that is right the first time."
           }
         }
       },
       "cta1": {
+        "label": "Get started",
         "title": "Ready to Transform Your Dental Practice?",
-        "subtitle": "Join over 500 laboratories that already trust FANA for their dental milling needs.",
+        "subtitle": "Send us your first case and see the difference in fit, finish and turnaround.",
         "viewServicesButton": "View Our Services",
-        "requestQuoteButton": "Request Quote"
+        "requestQuoteButton": "See Our Materials"
       },
       "cta2": {
+        "form": {
+          "title": "Request your quote",
+          "name": "Full name",
+          "phone": "Phone",
+          "email": "Email",
+          "message": "Tell us about your case",
+          "submit": "Send request",
+          "sending": "Sending...",
+          "success": "Thank you! We received your request and will reply soon.",
+          "error": "We couldn't send your request. Please try again."
+        },
+        "label": "Contact",
         "title": "Want a Quote?",
-        "subtitle": "Our team of experts is ready to help you choose the best solution for your laboratory",
+        "subtitle": "Tell us about your next case and we'll reply with a clear, no-obligation quote.",
         "contact": {
           "phone": {
             "title": "Call Us",

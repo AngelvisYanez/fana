@@ -16,7 +16,7 @@ export default function PoliticaPrivacidadPage() {
         <Header />
         
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-fana-secondary to-fana-white py-16">
+        <section className="bg-fana-secondary py-16">
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center max-w-4xl mx-auto"

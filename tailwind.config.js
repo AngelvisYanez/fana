@@ -6,6 +6,11 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      // Fill wide monitors: stepped max-widths so the content follows the window up to 1800px (default stopped at 1536px).
+      screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px', '2xl': '1536px', w1: '1680px', w2: '1800px' },
+    },
     extend: {
       colors: {
         'fana-navy': '#1E2B4F',
@@ -14,11 +19,11 @@ module.exports = {
         'fana-white': '#FFFFFF',
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        'serif': ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
-        'display': ['Inter', 'system-ui', 'sans-serif'],
-        'body': ['Inter', 'system-ui', 'sans-serif'],
-        'heading': ['Inter', 'system-ui', 'sans-serif'],
+        'sans': ['Open Sans', 'Segoe UI', 'Noto Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'serif': ['Merriweather', 'Georgia', 'Times New Roman', 'serif'],
+        'display': ['Merriweather', 'Georgia', 'Times New Roman', 'serif'],
+        'body': ['Open Sans', 'Segoe UI', 'Noto Sans', 'system-ui', 'sans-serif'],
+        'heading': ['Merriweather', 'Georgia', 'Times New Roman', 'serif'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

@@ -37,14 +37,14 @@ export default function AboutSection() {
               <div className="relative aspect-square">
                 {/* Background decorative circles */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full"
+                  className="absolute inset-0 bg-blue-100 rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 ></motion.div>
                 
                 {/* Main image circle */}
                 <motion.div 
-                  className="absolute inset-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-200 to-white"
+                  className="absolute inset-4 rounded-full overflow-hidden bg-blue-100"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >

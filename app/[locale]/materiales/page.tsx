@@ -24,7 +24,7 @@ export default function MaterialesPage() {
         <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-fana-secondary to-fana-white py-16 md:py-24 overflow-hidden">
+      <section className="bg-fana-secondary py-16 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -60,7 +60,7 @@ export default function MaterialesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Zirconio */}
-            <div className="bg-gradient-to-br from-fana-secondary to-fana-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
+            <div className="bg-fana-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
               <div className="w-16 h-16 bg-fana-primary rounded-2xl flex items-center justify-center mb-6">
                 <SparklesIcon className="w-8 h-8 text-white" />
               </div>
@@ -89,7 +89,7 @@ export default function MaterialesPage() {
             </div>
 
             {/* Disilicato de Litio */}
-            <div className="bg-gradient-to-br from-fana-secondary to-fana-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
+            <div className="bg-fana-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
               <div className="w-16 h-16 bg-fana-primary rounded-2xl flex items-center justify-center mb-6">
                 <StarIcon className="w-8 h-8 text-white" />
               </div>
@@ -119,7 +119,7 @@ export default function MaterialesPage() {
 
 
             {/* PMMA */}
-            <div className="bg-gradient-to-br from-fana-secondary to-fana-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
+            <div className="bg-fana-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
               <div className="w-16 h-16 bg-fana-primary rounded-2xl flex items-center justify-center mb-6">
                 <CubeIcon className="w-8 h-8 text-white" />
               </div>
@@ -149,7 +149,7 @@ export default function MaterialesPage() {
 
 
             {/* Cera */}
-            <div className="bg-gradient-to-br from-fana-secondary to-fana-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
+            <div className="bg-fana-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-fana-secondary/20">
               <div className="w-16 h-16 bg-fana-primary rounded-2xl flex items-center justify-center mb-6">
                 <BeakerIcon className="w-8 h-8 text-white" />
               </div>

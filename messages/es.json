@@ -494,11 +494,11 @@
       "contact": "Contacto",
       "quickLinks": "Enlaces Rápidos",
       "links": {
+        "404": "Página 404",
         "home": "Inicio",
         "about": "Sobre nosotros",
         "quote": "Obtener cotización",
-        "pricing": "Planes de precios",
-        "404": "Página 404"
+        "pricing": "Planes de precios"
       },
       "copyright": "© 2025 FANA Milling Center - Diseñado y Desarrollado por FANA.",
       "legal": {
@@ -552,6 +552,92 @@
         }
       }
     },
+    "aboutShowcase": {
+      "label": "Sobre FANA /",
+      "title": "Un laboratorio dental construido en torno a tu forma de trabajar",
+      "description": "Un equipo de técnicos dentales y especialistas CNC que convierte diseños digitales en prótesis que asientan sin ajustes en el sillón.",
+      "cta": "Conócenos",
+      "labAlt": "Laboratorio de fresado dental FANA con fresadoras CNC de 5 ejes",
+      "cards": {
+        "precision": {
+          "title": "Flujo digital",
+          "subtitle": "Del escaneo a la pieza terminada"
+        },
+        "machines": {
+          "title": "Fresado propio",
+          "subtitle": "Control total de la producción"
+        }
+      },
+      "stats": {
+        "satisfaction": {
+          "value": "4+",
+          "label": "Años de experiencia"
+        },
+        "delivery": {
+          "value": "CAD/CAM",
+          "label": "Flujo digital"
+        },
+        "precision": {
+          "value": "Propio",
+          "label": "Control de producción"
+        }
+      }
+    },
+    "servicesShowcase": {
+      "label": "Nuestros servicios /",
+      "title": "Descubre nuestros servicios de fresado",
+      "description": "Desde coronas individuales hasta estructuras de implante de arcada completa, fresamos lo que tu consulta necesita en zirconio, titanio, CrCo y más.",
+      "trustValue": "500+",
+      "trustLabel": "Laboratorios",
+      "trustText": "Clínicas y laboratorios del sur de Florida nos envían sus casos más exigentes.",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "viewService": "Ver servicio",
+      "items": {
+        "structures": "Estructuras de Implantes",
+        "aesthetics": "Estética Avanzada",
+        "milling": "Fresado General",
+        "supplies": "Suministros B2B"
+      }
+    },
+    "heroV2": {
+      "title": "Fresado dental de precisión, hecho a tu medida.",
+      "description": "Laboratorio CAD/CAM con tecnología CNC de 5 ejes y tolerancias de ±5μm. Resultados excepcionales en 24-48h para clínicas y laboratorios.",
+      "cta": "Cotizar ahora",
+      "menuOpen": "Abrir menú",
+      "menuClose": "Cerrar menú",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "slideLabel": "Servicio",
+      "experience": "Entrega en 24-48h",
+      "modalClose": "Cerrar",
+      "slides": {
+        "structures": {
+          "chip": "Estructuras de Implantes",
+          "title": "Estructuras de Implantes",
+          "subtitle": "Titanio y CrCo",
+          "meta": "Precisión ±5μm"
+        },
+        "aesthetics": {
+          "chip": "Estética Avanzada",
+          "title": "Estética Avanzada",
+          "subtitle": "Zirconio y Disilicato",
+          "meta": "Acabado natural"
+        },
+        "milling": {
+          "chip": "Fresado General",
+          "title": "Fresado General",
+          "subtitle": "CNC de 5 ejes",
+          "meta": "Coronas y puentes"
+        },
+        "supplies": {
+          "chip": "Suministros B2B",
+          "title": "Suministros B2B",
+          "subtitle": "Materiales de fresado",
+          "meta": "Para laboratorios"
+        }
+      }
+    },
     "about": {
       "badge": "SOBRE NOSOTROS",
       "title": {
@@ -573,27 +659,33 @@
       "service4": "Control Calidad"
     },
     "services": {
-      "badge": "NUESTROS SERVICIOS",
+      "badge": "NUESTRO PROCESO",
       "title": {
-        "part1": "Una Amplia Gama de Servicios",
-        "part2": "para tu Mejor Sonrisa"
+        "part1": "Del Diseño Digital",
+        "part2": "a la Sonrisa Terminada"
       },
       "cta": "Explora Todos los Servicios",
       "service1": {
-        "title": "Fresado General",
-        "description": "Servicios de fresado CNC de alta precisión para prótesis dentales. Utilizamos tecnología de 5 ejes con tolerancias micrométricas para garantizar resultados excepcionales en cada proyecto."
+        "title": "Diseño Digital",
+        "description": "Trabajamos a partir de tus escaneos y archivos CAD, revisando contigo cada caso antes de que llegue a la máquina."
       },
       "service2": {
-        "title": "Estructuras de Implantes",
-        "description": "Fresado especializado de estructuras con máxima precisión. Cada estructura es diseñada y fabricada siguiendo los más estrictos estándares de calidad."
+        "title": "Fresado de Precisión",
+        "description": "Nuestras fresadoras CNC convierten el diseño aprobado en piezas de zirconio, titanio o CrCo con tolerancias ajustadas."
       },
       "service3": {
-        "title": "Estética Avanzada",
-        "description": "Especialistas en materiales de alta estética como Zirconio multicapa y Disilicato de Litio, ofreciendo la máxima naturalidad y resistencia en restauraciones dentales."
+        "title": "Acabado e Inspección",
+        "description": "Cada pieza se termina a mano, se inspecciona y se empaca con cuidado para que llegue lista para asentar."
       },
       "learnMore": "Conoce más"
     },
     "homePage": {
+      "videoExpand": {
+        "title": "Precisión que se ve",
+        "scrollHint": "Desplázate para descubrir",
+        "heading": "Tecnología CAD/CAM al servicio de tu sonrisa",
+        "text": "Fresado CNC de 5 ejes, materiales premium y tolerancias de ±5µm en cada pieza."
+      },
       "stats": {
         "completedCases": {
           "value": "500+",
@@ -609,28 +701,29 @@
         },
         "precision": {
           "value": "5μm",
-          "label": "Precisión Micrométrica"
+          "label": "Tolerancia de fresado"
         }
       },
       "whyChooseUs": {
+        "label": "Por qué FANA",
         "title": "¿Por Qué Elegir FANA?",
-        "subtitle": "Tecnología de vanguardia al servicio de la excelencia dental",
+        "subtitle": "Seis razones por las que laboratorios y clínicas siguen enviándonos sus casos.",
         "features": {
           "precision": {
             "title": "Precisión Micrométrica",
-            "description": "Fresado CNC de 5 ejes con tolerancias de ±5μm para resultados perfectos en cada pieza."
+            "description": "Cada pieza se verifica contra el diseño digital para que asiente bien a la primera."
           },
           "delivery": {
             "title": "Entrega Rápida",
-            "description": "Plazos de entrega optimizados de 24-48h sin comprometer la calidad del trabajo."
+            "description": "Tiempos de entrega cortos y predecibles, sin sacrificar la calidad del trabajo."
           },
           "materials": {
             "title": "Materiales Premium",
-            "description": "Solo trabajamos con materiales certificados y biocompatibles de las mejores marcas."
+            "description": "Solo trabajamos con materiales certificados y biocompatibles de marcas líderes."
           },
           "technology": {
             "title": "Tecnología Avanzada",
-            "description": "Equipamiento de última generación con software CAD/CAM certificado."
+            "description": "Equipos modernos y un flujo abierto que se adapta a tu forma de diseñar."
           },
           "support": {
             "title": "Soporte Técnico 24/7",
@@ -638,40 +731,58 @@
           },
           "quality": {
             "title": "Garantía de Calidad",
-            "description": "Certificación ISO 13485 y control de calidad exhaustivo en cada proyecto."
+            "description": "Inspección estricta en cada etapa, desde el primer escaneo hasta el empaque final."
           }
+        },
+        "seal": {
+          "value": "ISO",
+          "label": "13485 certificado"
         }
       },
       "testimonials": {
+        "label": "Testimonios",
         "title": "Lo Que Dicen Nuestros Clientes",
         "subtitle": "La satisfacción de nuestros clientes es nuestra mayor recompensa",
         "items": {
           "maria": {
             "name": "Dr. María González",
             "position": "Clínica Dental Premium",
-            "text": "La calidad y precisión de FANA es excepcional. Sus estructuras de zirconio son perfectas y el tiempo de entrega es increíble."
+            "text": "Sus estructuras de zirconio llegan terminadas y listas para asentar. Nuestros ajustes en el sillón casi han desaparecido."
           },
           "carlos": {
             "name": "Dr. Carlos Ruiz",
             "position": "Laboratorio Dental Ruiz",
-            "text": "El servicio técnico de FANA es excepcional. Siempre están disponibles para resolver cualquier duda."
+            "text": "Cuando tenemos una duda sobre un caso, su equipo técnico responde de inmediato. Se siente como una extensión de nuestro propio laboratorio."
           },
           "ana": {
             "name": "Dra. Ana Martínez",
             "position": "Centro Odontológico Avanzado",
-            "text": "La precisión de 5 micras que ofrecen es impresionante. Nuestros pacientes notan la diferencia."
+            "text": "Nuestros pacientes notan la diferencia: color natural, márgenes limpios y un ajuste perfecto a la primera."
           }
         }
       },
       "cta1": {
+        "label": "Empieza hoy",
         "title": "¿Listo para Transformar tu Práctica Dental?",
-        "subtitle": "Únete a más de 500 laboratorios que ya confían en FANA para sus necesidades de fresado dental.",
+        "subtitle": "Envíanos tu primer caso y comprueba la diferencia en ajuste, acabado y tiempos.",
         "viewServicesButton": "Ver Nuestros Servicios",
-        "requestQuoteButton": "Solicitar Cotización"
+        "requestQuoteButton": "Ver Nuestros Materiales"
       },
       "cta2": {
+        "form": {
+          "title": "Solicita tu cotización",
+          "name": "Nombre completo",
+          "phone": "Teléfono",
+          "email": "Correo electrónico",
+          "message": "Cuéntanos sobre tu caso",
+          "submit": "Enviar solicitud",
+          "sending": "Enviando...",
+          "success": "¡Gracias! Hemos recibido tu solicitud y te responderemos pronto.",
+          "error": "No pudimos enviar tu solicitud. Inténtalo de nuevo."
+        },
+        "label": "Contacto",
         "title": "¿Quieres una Cotización?",
-        "subtitle": "Nuestro equipo de expertos está listo para ayudarte a elegir la mejor solución para tu laboratorio",
+        "subtitle": "Cuéntanos sobre tu próximo caso y te responderemos con una cotización clara y sin compromiso.",
         "contact": {
           "phone": {
             "title": "Llámanos",

@@ -23,7 +23,7 @@ export default function ServiciosPage() {
         <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-fana-secondary py-16 md:py-24 overflow-hidden">
+      <section className="bg-gray-50 py-16 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -136,7 +136,7 @@ export default function ServiciosPage() {
                 </div>
                 
                 <div>
-                  <div className="bg-gradient-to-br from-fana-secondary to-blue-100 rounded-3xl p-8 overflow-hidden">
+                  <div className="bg-fana-secondary rounded-3xl p-8 overflow-hidden">
                     <div className="aspect-square bg-white rounded-2xl overflow-hidden relative group">
                       {/* Real Service Image */}
                       <Image
@@ -166,7 +166,7 @@ export default function ServiciosPage() {
                       </div>
                       
                       {/* Caption Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                      <div className="absolute bottom-0 left-0 right-0 bg-black/55 p-4 text-white">
                         <h4 className="text-lg font-bold">{t('millingStructures.imageAlt')}</h4>
                         <p className="text-sm text-gray-200">{t('millingStructures.imageSubtitle')}</p>
                       </div>
@@ -180,7 +180,7 @@ export default function ServiciosPage() {
             <div className="mb-20">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1">
-                  <div className="bg-gradient-to-br from-fana-secondary to-fana-white rounded-3xl p-8 overflow-hidden">
+                  <div className="bg-fana-secondary rounded-3xl p-8 overflow-hidden">
                     <div className="aspect-square bg-white rounded-2xl overflow-hidden relative group">
                       {/* Real Service Image */}
                       <Image
@@ -211,7 +211,7 @@ export default function ServiciosPage() {
                       </div>
                       
                       {/* Caption Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                      <div className="absolute bottom-0 left-0 right-0 bg-black/55 p-4 text-white">
                         <h4 className="text-lg font-bold">{t('advancedAesthetics.imageAlt')}</h4>
                         <p className="text-sm text-gray-200">{t('advancedAesthetics.imageSubtitle')}</p>
                       </div>

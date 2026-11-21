@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -147,7 +147,7 @@ export default function DiscountPopup() {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="relative max-w-lg w-full pointer-events-auto rounded-3xl overflow-hidden shadow-2xl" style={{
-                            background: 'linear-gradient(135deg, #1E2B4F 0%, #0f1a3a 25%, #125DA3 50%, #0d4a7a 75%, #1E2B4F 100%)'
+                            background: '#1E2B4F'
                         }}>
                             {/* Close Button */}
                             <button
@@ -174,7 +174,7 @@ export default function DiscountPopup() {
                                 <motion.h2
                                     variants={fadeIn}
                                     className="text-3xl sm:text-4xl font-bold text-center mb-4 font-heading leading-tight text-white"
-                                    style={{ fontFamily: 'Playfair Display, serif' }}
+                                    style={{ fontFamily: 'Merriweather, Georgia, serif' }}
                                 >
                                     {t('title')}
                                 </motion.h2>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,17 +10,16 @@
   --color-fana-secondary: #DBEDF9;
   --color-fana-white: #FFFFFF;
   
-  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-family-display: 'Inter', system-ui, sans-serif;
-  --font-family-body: 'Inter', system-ui, sans-serif;
-  --font-family-heading: 'Inter', system-ui, sans-serif;
+  --font-family-sans: 'Open Sans', 'Segoe UI', 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-family-display: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-family-body: 'Open Sans', 'Segoe UI', 'Noto Sans', system-ui, sans-serif;
+  --font-family-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
 }
 
 @layer base {
   html {
     font-family: var(--font-family-sans);
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     font-variant-ligatures: common-ligatures;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -38,20 +37,20 @@
     font-family: var(--font-family-heading);
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.005em;
     color: #111827;
   }
   
   h1 {
     font-size: 2.5rem;
     font-weight: 800;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.005em;
   }
   
   h2 {
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.005em;
   }
   
   h3 {
@@ -151,7 +150,7 @@
     color: var(--color-fana-navy);
     text-align: center;
     margin-bottom: 1rem;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.005em;
     line-height: 1.1;
   }
   
@@ -171,14 +170,14 @@
   .text-display {
     font-family: var(--font-family-display);
     font-weight: 800;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.005em;
     line-height: 1.1;
   }
   
   .text-heading {
     font-family: var(--font-family-heading);
     font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.005em;
     line-height: 1.2;
   }
   

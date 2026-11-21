@@ -97,7 +97,7 @@ export default function ContactoPage() {
         <Header />
         
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-gray-50 to-blue-50 pt-8 pb-12 md:pt-16 md:pb-24 overflow-hidden">
+        <section className="bg-gray-50 pt-8 pb-12 md:pt-16 md:pb-24 overflow-hidden">
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center max-w-4xl mx-auto"
