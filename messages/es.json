@@ -500,7 +500,7 @@
         "quote": "Obtener cotización",
         "pricing": "Planes de precios"
       },
-      "copyright": "© 2025 FANA Milling Center - Diseñado y Desarrollado por FANA.",
+      "copyright": "© 2026 FANA Milling Center - Diseñado y Desarrollado por FANA.",
       "legal": {
         "terms": "Términos de servicio",
         "privacy": "Política de privacidad"
@@ -802,6 +802,72 @@
         "contactButton": "Contactar Ahora"
       }
     },
+    "materialsPage": {
+      "intro": {
+        "label": "Materiales premium",
+        "title": "Materiales de alta calidad",
+        "description": "Solo trabajamos con materiales certificados y biocompatibles de las mejores marcas internacionales."
+      },
+      "items": {
+        "zirconia": {
+          "title": "Zirconio multicapa",
+          "description": "Alta resistencia y estética superior para restauraciones duraderas.",
+          "imageAlt": "Bloques de zirconio multicapa",
+          "spec1": "Resistencia > 1200 MPa",
+          "spec2": "Translucidez natural",
+          "spec3": "Certificación ISO 13356",
+          "spec4": "Biocompatibilidad total"
+        },
+        "lithium": {
+          "title": "Disilicato de litio",
+          "description": "Estética de excelencia para restauraciones que exigen máxima naturalidad.",
+          "imageAlt": "Bloques de disilicato de litio",
+          "spec1": "Resistencia > 400 MPa",
+          "spec2": "Estética superior",
+          "spec3": "Mínimo desgaste",
+          "spec4": "Certificación CE"
+        },
+        "pmma": {
+          "title": "PMMA",
+          "description": "Material provisional de alta calidad para restauraciones temporales.",
+          "imageAlt": "Discos de PMMA para provisionales",
+          "spec1": "Bloques provisionales",
+          "spec2": "Fácil fresado",
+          "spec3": "Colores variados",
+          "spec4": "Económico"
+        },
+        "wax": {
+          "title": "Cera de fresado",
+          "description": "Para el modelado y encerado de estructuras protésicas.",
+          "imageAlt": "Discos de cera de fresado",
+          "spec1": "Modelado preciso",
+          "spec2": "Fácil fresado",
+          "spec3": "Sin residuos",
+          "spec4": "Colada directa"
+        }
+      },
+      "technology": {
+        "label": "Tecnología",
+        "title": "Fresado CNC de 5 ejes",
+        "description": "Maquinaria de precisión micrométrica para garantizar resultados excepcionales.",
+        "imageAlt": "Fresadora CNC de 5 ejes de FANA",
+        "fiveAxis": {
+          "title": "Fresadoras de 5 ejes",
+          "metric": "±5μm",
+          "text": "Precisión micrométrica"
+        },
+        "scanners": {
+          "title": "Escáneres 3D",
+          "metric": "10μm",
+          "text": "Resolución de escaneo"
+        },
+        "software": {
+          "title": "Software CAD/CAM",
+          "metric": "CE",
+          "text": "Certificación médica"
+        }
+      }
+    },
     "servicesPage": {
       "hero": {
         "badge": "Servicios Especializados",
@@ -909,11 +975,33 @@
     }
   },
   "about": {
+    "page": {
+      "hero": {
+        "title": "Nosotros",
+        "imageAlt": "Laboratorio de fresado dental FANA con fresadoras CNC de 5 ejes"
+      },
+      "intro": {
+        "label": "Principios",
+        "lead": "FANA es un centro de fresado CAD/CAM con más de 4 años fabricando estructuras y restauraciones",
+        "muted": "para laboratorios y clínicas del sur de Florida, con criterio de técnico en cada caso."
+      },
+      "history": {
+        "label": "Nuestra historia",
+        "imageAlt": "Equipo de FANA Milling Center"
+      },
+      "values": {
+        "items": {
+          "precision": { "title": "Precisión medible", "text": "Tolerancia de 5 μm en cada pieza fresada." },
+          "ownProduction": { "title": "Producción propia", "text": "Controlamos el fresado de principio a fin, sin intermediarios." },
+          "directContact": { "title": "Trato directo", "text": "Hablas con quien fabrica tu caso y resuelves dudas sin demoras." }
+        }
+      }
+    },
     "history": {
       "title": "Nuestra Historia",
       "paragraph1": "FANA Milling Center nació hace más de 4 años con una visión clara: revolucionar la fabricación dental mediante la tecnología CAD/CAM más avanzada. Desde nuestros inicios, hemos estado comprometidos con la excelencia y la innovación constante.",
       "paragraph2": "Hoy en día, somos líderes en el sector, ofreciendo servicios de fresado CNC de 5 ejes con precisión micrométrica. Nuestro equipo de expertos trabaja día a día para garantizar que cada prótesis dental que sale de nuestro laboratorio cumpla con los más altos estándares de calidad.",
-      "paragraph3": "Con más de 500 casos completados exitosamente y una tasa de satisfacción del 99%, nos enorgullece ser el socio tecnológico de confianza para laboratorios y clínicas dentales en toda España."
+      "paragraph3": "Con más de 500 casos completados exitosamente y una tasa de satisfacción del 99%, nos enorgullece ser el socio tecnológico de confianza para laboratorios y clínicas dentales del sur de Florida."
     },
     "cta": {
       "title": "¿Interesado en Nuestros Servicios?",
@@ -921,6 +1009,13 @@
       "contactButton": "Contactar Ahora",
       "servicesButton": "Ver Servicios"
     }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La dirección que buscas no existe o fue movida. Revisa el enlace o vuelve al inicio.",
+    "home": "Ir al inicio",
+    "contact": "Contactar",
+    "linksTitle": "Páginas útiles"
   },
   "legal": {
     "privacy": {
@@ -929,7 +1024,7 @@
       "subtitle": "Información sobre el tratamiento de datos personales conforme al RGPD",
       "header": {
         "title": "POLÍTICA DE PRIVACIDAD (RGPD)",
-        "lastUpdate": "Fecha de última actualización: Octubre de 2025"
+        "lastUpdate": "Fecha de última actualización: Noviembre de 2026"
       },
       "sections": {
         "responsible": {
@@ -996,7 +1091,7 @@
         "expDate": "Fecha de vencimiento: 31/12/2030",
         "address": "Domicilio: 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA",
         "county": "Condado: MIAMI-DADE",
-        "lastUpdate": "Fecha de última actualización: Octubre de 2025"
+        "lastUpdate": "Fecha de última actualización: Noviembre de 2026"
       },
       "sections": {
         "object": {
@@ -1052,7 +1147,7 @@
         "registration": "Número de registro: G25000131466",
         "address": "Domicilio: 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA",
         "county": "Condado: MIAMI-DADE",
-        "lastUpdate": "Fecha de última actualización: Octubre de 2025"
+        "lastUpdate": "Fecha de última actualización: Noviembre de 2026"
       },
       "sections": {
         "whatAre": {

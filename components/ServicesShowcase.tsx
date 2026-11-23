@@ -54,9 +54,6 @@ export default function ServicesShowcase() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="lg:col-span-7 lg:col-start-2 text-3xl sm:text-5xl lg:text-[3.5rem] font-normal uppercase !leading-[1.2] tracking-normal text-fana-navy">
-            <span className="block lg:inline mb-2 lg:mb-0 lg:mr-3 text-xs sm:text-sm font-medium normal-case tracking-normal text-gray-500 align-top">
-              {t('label')}
-            </span>
             {t('title')}
           </h2>
           <p className="lg:col-span-4 text-base text-gray-600 max-w-md">{t('description')}</p>
@@ -89,7 +86,7 @@ export default function ServicesShowcase() {
           <div className="lg:col-span-9 relative">
             <ul
               ref={scroller}
-              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex gap-4 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               {ITEMS.map((item, i) => (
                 <motion.li

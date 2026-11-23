@@ -1,16 +1,42 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
+import PageHero from '@/components/PageHero';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
-import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { useTranslations } from 'next-intl';
+
+/**
+ * IMÁGENES — pon aquí la ruta (por ejemplo '/images/contact/contact-hero.jpg').
+ * Mientras valga `null` se muestra un contenedor vacío con el tamaño recomendado.
+ */
+const IMAGES = {
+  hero: '/images/contact/contact-hero.jpg' as string | null, // banner superior · 2560 × 1100 (21:9)
+};
+
+const reveal = {
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-80px' },
+  transition: { duration: 0.6 },
+};
+
+const fieldClass =
+  'w-full px-4 py-3.5 text-base bg-white/60 backdrop-blur-sm border border-white/70 rounded-xl outline-none text-fana-navy placeholder-gray-500 shadow-sm focus:bg-white/80 focus:ring-2 focus:ring-fana-primary focus:border-transparent transition';
+
+/** Keeps digits only (max 10) and formats them as (305) 555-0123. */
+const formatUS = (raw: string) => {
+  const d = raw.replace(/\D/g, '').slice(0, 10);
+  if (d.length < 4) return d;
+  if (d.length < 7) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
+  return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
+};
 
 export default function ContactoPage() {
   const t = useTranslations('contact');
+  const nav = useTranslations('navigation');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,7 +62,7 @@ export default function ContactoPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, phone: formData.phone ? `+1 ${formData.phone}` : '' }),
       });
 
       // Verificar que la respuesta sea JSON
@@ -91,133 +117,135 @@ export default function ContactoPage() {
     });
   };
 
+  const infoRows = [
+    {
+      Icon: PhoneIcon,
+      title: t('info.phone.title'),
+      text: t('info.phone.number'),
+      note: t('info.phone.hours'),
+      href: `tel:${t('info.phone.number').replace(/[^\d+]/g, '')}`,
+      external: false,
+    },
+    {
+      Icon: EnvelopeIcon,
+      title: t('info.email.title'),
+      text: t('info.email.address'),
+      note: t('info.email.response'),
+      href: `mailto:${t('info.email.address')}`,
+      external: false,
+    },
+    {
+      Icon: MapPinIcon,
+      title: t('info.address.title'),
+      text: [t('info.address.street'), t('info.address.city')].filter(Boolean).join(', '),
+      note: t('info.address.visits'),
+      href: t('info.address.googleLink'),
+      external: true,
+    },
+  ];
+
   return (
     <PageTransition>
       <div className="min-h-screen">
-        <Header />
-        
-        {/* Hero Section */}
-        <section className="bg-gray-50 pt-8 pb-12 md:pt-16 md:pb-24 overflow-hidden">
-          <div className="container mx-auto px-4">
-            <motion.div 
-              className="text-center max-w-4xl mx-auto"
-              initial="initial"
-              animate="animate"
-              variants={staggerContainer}
-            >
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-blue-100 text-fana-primary px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6"
-                variants={fadeInUp}
-              >
-                <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-fana-primary rounded-full"></span>
-                {t('form.contactDirect')}
+        <PageHero
+          title={nav('contact')}
+          image={IMAGES.hero}
+          imageClassName="object-[80%_50%] sm:object-center"
+        />
+
+        <section className="bg-white py-16 sm:py-20 lg:py-28 overflow-x-clip">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+              {/* Left: pitch + contact details */}
+              <motion.div {...reveal} className="lg:col-span-5">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal uppercase !leading-[1.15] text-fana-navy">
+                  {t('title')}
+                </h2>
+                <p className="mt-6 max-w-md text-base sm:text-lg leading-relaxed text-gray-600">
+                  {t('subtitle')}
+                </p>
+
+                <ul className="mt-10 divide-y divide-gray-200 border-y border-gray-200">
+                  {infoRows.map(({ Icon, title, text, note, href, external }) => (
+                    <li key={title}>
+                      <a
+                        href={href}
+                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="group flex items-start gap-5 py-5"
+                      >
+                        <span className="shrink-0 w-11 h-11 rounded-full bg-fana-secondary text-fana-primary flex items-center justify-center transition-colors group-hover:bg-fana-primary group-hover:text-white">
+                          <Icon className="w-5 h-5" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block font-heading text-lg text-fana-navy">{title}</span>
+                          <span className="mt-0.5 block text-gray-600 break-words">{text}</span>
+                          <span className="mt-1 block text-sm text-gray-500">{note}</span>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-              <motion.h1 
-                className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 md:mb-6 leading-tight"
-                variants={fadeInUp}
-              >
-                {t('title')}
-              </motion.h1>
-              <motion.p 
-                className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed"
-                variants={fadeInUp}
-              >
-                {t('subtitle')}
-              </motion.p>
-            </motion.div>
-          </div>
-        </section>
 
-      {/* Contact Section */}
-      <section className="bg-white py-8 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 md:mb-6">{t('form.sendMessage')}</h2>
-              
-              {/* Status Messages */}
-              {submitStatus.type && (
-                <div
-                  className={`mb-4 md:mb-6 p-3 md:p-4 rounded-lg ${
-                    submitStatus.type === 'success'
-                      ? 'bg-green-50 text-green-800 border border-green-200'
-                      : 'bg-red-50 text-red-800 border border-red-200'
-                  }`}
-                >
-                  <p className="font-medium text-sm md:text-base">{submitStatus.message}</p>
-                </div>
-              )}
+              {/* Right: glass form, same look as the home contact */}
+              <motion.form
+                onSubmit={handleSubmit}
+                className="lg:col-span-7 lg:self-start lg:sticky lg:top-6 relative isolate rounded-3xl bg-white/25 backdrop-blur-2xl border border-white/80 ring-1 ring-fana-primary/10 shadow-[0_8px_40px_rgba(21,94,168,0.15),inset_0_1px_0_rgba(255,255,255,0.7)] p-6 sm:p-10 space-y-4"
+                initial={reveal.initial}
+                whileInView={reveal.whileInView}
+                viewport={reveal.viewport}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <div aria-hidden="true" className="pointer-events-none absolute -z-10 -top-16 -right-12 w-64 h-64 rounded-full bg-fana-primary/45 blur-3xl" />
+                <div aria-hidden="true" className="pointer-events-none absolute -z-10 -bottom-20 -left-10 w-72 h-72 rounded-full bg-sky-400/50 blur-3xl" />
 
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 sm:gap-6">
+                <h2 className="font-heading text-2xl text-fana-navy mb-2">{t('form.sendMessage')}</h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1.5 md:mb-2">
-                      {t('form.fullName')}
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent"
-                      required
-                    />
+                    <label htmlFor="name" className="sr-only">{t('form.fullName')}</label>
+                    <input id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder={t('form.fullName')} className={fieldClass} required />
                   </div>
-                  
                   <div>
-                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1.5 md:mb-2">
-                      {t('form.email')}
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent"
-                      required
-                    />
+                    <label htmlFor="email" className="sr-only">{t('form.email')}</label>
+                    <input id="email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder={t('form.email')} className={fieldClass} required />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 sm:gap-6">
-                  <div>
-                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1.5 md:mb-2">
-                      {t('form.phone')}
-                    </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex">
+                    <span className="inline-flex items-center gap-1.5 px-4 rounded-l-xl border border-r-0 border-white/70 bg-white/40 backdrop-blur-sm text-fana-navy font-medium select-none">
+                      <svg viewBox="0 0 24 16" className="w-6 h-4 rounded-[3px] shadow-sm" aria-hidden="true">
+                        <rect width="24" height="16" fill="#fff" />
+                        {[0, 2, 4, 6, 8, 10, 12].map((i) => (
+                          <rect key={i} y={i * 1.2307} width="24" height="1.2307" fill="#B22234" />
+                        ))}
+                        <rect width="10" height="8.6" fill="#3C3B6E" />
+                      </svg>
+                      +1
+                    </span>
+                    <label htmlFor="phone" className="sr-only">{t('form.phone')}</label>
                     <input
+                      id="phone"
                       type="tel"
+                      inputMode="numeric"
+                      autoComplete="tel-national"
                       name="phone"
                       value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent"
+                      onChange={(e) => setFormData({ ...formData, phone: formatUS(e.target.value) })}
+                      placeholder="(305) 555-0123"
+                      className={`${fieldClass} !rounded-l-none min-w-0`}
                     />
                   </div>
-                  
                   <div>
-                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1.5 md:mb-2">
-                      {t('form.clinicName')}
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent"
-                    />
+                    <label htmlFor="company" className="sr-only">{t('form.clinicName')}</label>
+                    <input id="company" type="text" name="company" value={formData.company} onChange={handleChange} placeholder={t('form.clinicName')} className={fieldClass} />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1.5 md:mb-2">
-                    {t('form.serviceType')}
-                  </label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent"
-                  >
+                  <label htmlFor="service" className="sr-only">{t('form.serviceType')}</label>
+                  <select id="service" name="service" value={formData.service} onChange={handleChange} className={`${fieldClass} ${formData.service ? '' : 'text-gray-500'}`}>
                     <option value="">{t('form.selectService')}</option>
                     <option value="estructuras">{t('form.services.estructuras')}</option>
                     <option value="estetica">{t('form.services.estetica')}</option>
@@ -227,113 +255,43 @@ export default function ContactoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1.5 md:mb-2">
-                    {t('form.message')}
-                  </label>
+                  <label htmlFor="message" className="sr-only">{t('form.message')}</label>
                   <textarea
+                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-fana-primary focus:border-transparent"
+                    className={`${fieldClass} resize-none`}
                     placeholder={t('form.messagePlaceholder')}
-                  ></textarea>
+                  />
                 </div>
+
+                {submitStatus.type && (
+                  <p
+                    role="status"
+                    className={`text-sm ${submitStatus.type === 'success' ? 'text-green-700' : 'text-red-600'}`}
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-fana-primary text-white py-2.5 md:py-3 lg:py-4 rounded-lg hover:bg-fana-navy transition-colors font-medium text-sm md:text-base lg:text-lg shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="inline-flex items-center gap-4 rounded-full bg-fana-primary text-white pl-8 pr-2 py-2 font-medium hover:bg-fana-navy transition-colors disabled:opacity-60"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <svg
-                        className="animate-spin h-4 w-4 md:h-5 md:w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
-                      {t('form.submitting')}
-                    </>
-                  ) : (
-                    t('form.submit')
-                  )}
+                  {isSubmitting ? t('form.submitting') : t('form.submit')}
+                  <span className="w-11 h-11 rounded-full bg-white text-fana-primary flex items-center justify-center">
+                    <ArrowRightIcon className="w-5 h-5" />
+                  </span>
                 </button>
-              </form>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">{t('info.title')}</h2>
-              <div className="space-y-6">
-                <div className="bg-blue-50 p-6 rounded-xl">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-fana-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <PhoneIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-800 mb-2">{t('info.phone.title')}</h3>
-                      <p className="text-gray-600">{t('info.phone.number')}</p>
-                      <p className="text-sm text-gray-500 mt-1">{t('info.phone.hours')}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 p-6 rounded-xl">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-fana-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <EnvelopeIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-800 mb-2">{t('info.email.title')}</h3>
-                      <p className="text-gray-600">{t('info.email.address')}</p>
-                      <p className="text-sm text-gray-500 mt-1">{t('info.email.response')}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 p-6 rounded-xl">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-fana-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPinIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-800 mb-2">{t('info.address.title')}</h3>
-                      <p className="text-gray-600">{t('info.address.street')}</p>
-                      {t('info.address.city') && <p className="text-gray-600">{t('info.address.city')}</p>}
-                      <a 
-                        href={t('info.address.googleLink')} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-sm text-fana-primary hover:text-fana-navy mt-1 inline-block underline"
-                      >
-                        {t('info.address.visits')}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </motion.form>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-
-      <Footer />
+        <Footer />
       </div>
     </PageTransition>
   );

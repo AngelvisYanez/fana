@@ -66,9 +66,6 @@ export default function AboutShowcase() {
           <div className="lg:col-span-6 flex flex-col justify-between gap-10 lg:gap-10">
             <motion.div {...reveal}>
               <h2 className="text-3xl sm:text-5xl lg:text-[3rem] font-normal uppercase !leading-[1.2] tracking-normal text-fana-navy">
-                <span className="block mb-4 text-xs sm:text-sm font-medium normal-case tracking-normal text-gray-500">
-                  {t('label')}
-                </span>
                 {t('title')}
               </h2>
               <p className="mt-6 text-base leading-relaxed text-gray-600 max-w-md">{t('description')}</p>

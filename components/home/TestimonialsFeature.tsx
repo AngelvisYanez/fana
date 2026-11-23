@@ -47,7 +47,6 @@ export default function TestimonialsFeature() {
           transition={{ duration: 0.6 }}
         >
           <div>
-            <p className="mb-4 text-xs sm:text-sm font-medium text-gray-500">{t('label')} /</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal uppercase !leading-[1.2] text-fana-navy">
               {t('title')}
             </h2>

@@ -8,11 +8,11 @@ type Breakpoint = 'sm' | 'md';
 /** Static class strings so Tailwind can see them. */
 const BP = {
   sm: {
-    track: 'max-sm:flex max-sm:overflow-x-auto max-sm:snap-x max-sm:snap-mandatory max-sm:gap-4 max-sm:-mx-4 max-sm:px-4 max-sm:scroll-px-4 max-sm:pb-1',
+    track: 'max-sm:flex max-sm:overflow-x-auto max-sm:overflow-y-hidden max-sm:snap-x max-sm:snap-mandatory max-sm:gap-4 max-sm:-mx-4 max-sm:px-4 max-sm:scroll-px-4 max-sm:pb-1',
     dots: 'sm:hidden',
   },
   md: {
-    track: 'max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-4 max-md:-mx-4 max-md:px-4 max-md:scroll-px-4 max-md:pb-1',
+    track: 'max-md:flex max-md:overflow-x-auto max-md:overflow-y-hidden max-md:snap-x max-md:snap-mandatory max-md:gap-4 max-md:-mx-4 max-md:px-4 max-md:scroll-px-4 max-md:pb-1',
     dots: 'md:hidden',
   },
 } as const;

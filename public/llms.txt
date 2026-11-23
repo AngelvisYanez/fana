@@ -1,0 +1,54 @@
+# FANA Milling Center
+
+> FANA Milling Center is a CAD/CAM dental milling center in South Florida. It manufactures implant frameworks, crowns, bridges and advanced aesthetic restorations on 5-axis CNC milling machines for dental laboratories and clinics (B2B). The website is available in Spanish and English.
+
+Key facts published on the website:
+- More than 4 years of experience in digital dental manufacturing.
+- 5-axis CNC milling with micrometric precision (±5 μm).
+- Typical turnaround of 24 hours.
+- More than 500 completed cases and a 99% client satisfaction rate.
+- Service area: Broward, Miami-Dade and Palm Beach counties, Florida, USA.
+- Legal entity: FANA GROUP CORP (trade name: FANA Milling Center).
+
+## Main pages
+
+- [Home (Spanish)](https://fanamillingcenter.com/es): Overview of services, laboratory and workflow.
+- [Home (English)](https://fanamillingcenter.com/en): Overview of services, laboratory and workflow.
+- [About us](https://fanamillingcenter.com/en/nosotros): Company story, principles and how the lab works.
+- [Services](https://fanamillingcenter.com/en/servicios): Implant framework milling, crowns and bridges, advanced aesthetics, provisional restorations.
+- [Materials](https://fanamillingcenter.com/en/materiales): Multilayer zirconia, lithium disilicate, PMMA and milling wax, plus the CNC technology used.
+- [Contact and quotes](https://fanamillingcenter.com/en/contacto): Contact form for sending a case or requesting a quote.
+
+## Services
+
+- Implant framework milling (zirconia, titanium, chrome-cobalt, PMMA).
+- Crowns and bridges.
+- Advanced aesthetics: individual crowns, fixed bridges, veneers, inlays and onlays (VITA 3D shade system, biocompatible materials).
+- Provisional restorations.
+
+## Materials
+
+- Multilayer zirconia (strength > 1200 MPa, ISO 13356).
+- Lithium disilicate (strength > 400 MPa, CE).
+- PMMA for provisional restorations.
+- Milling wax for modeling and waxing of prosthetic frameworks.
+
+## Contact
+
+- Phone: +1 (786) 881-7017
+- Email: info@fanamillingcenter.com
+- Website: https://fanamillingcenter.com
+- Instagram: https://www.instagram.com/fanamillingcenter/
+- LinkedIn: https://www.linkedin.com/company/fana-milling-center
+
+## Legal
+
+- [Privacy policy](https://fanamillingcenter.com/en/politica-privacidad)
+- [Cookie policy](https://fanamillingcenter.com/en/politica-cookies)
+- [Terms and conditions](https://fanamillingcenter.com/en/terminos-servicio)
+
+## Notes for AI assistants
+
+- The business serves professionals (dental laboratories and clinics), not patients directly.
+- Prices are not published; quotes are requested through the contact form or by phone.
+- Page paths are in Spanish in both languages (for example `/en/servicios`); the content under `/en` is in English.

@@ -84,7 +84,8 @@
     transition: color 0.2s ease;
   }
   
-  a:hover {
+  /* Only plain links: classed links (buttons, nav items) set their own hover colors. */
+  a:where(:not([class])):hover {
     color: var(--color-fana-navy);
   }
   

@@ -1,305 +1,204 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Header from '@/components/Header';
-import OurServicesSection from '@/components/OurServicesSection';
+import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { CubeIcon, PhotoIcon, StarIcon } from '@heroicons/react/24/outline';
+import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
-import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations';
-import { CubeIcon, StarIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import OurServicesSection from '@/components/OurServicesSection';
+import CtaBanner from '@/components/home/CtaBanner';
+
+/**
+ * IMÁGENES — pon aquí la ruta (por ejemplo '/images/services/services-hero.jpg').
+ * Mientras valga `null` se muestra un contenedor vacío con el tamaño recomendado.
+ */
+const IMAGES = {
+  hero: '/images/services/services-hero.jpg' as string | null, // banner superior · 2560 × 1100 (21:9)
+  structures: '/images/services/services-Structure Milling.jpg' as string | null, // 4:5 vertical
+  aesthetics: '/images/services/services-Advanced Aesthetics.jpg' as string | null, // 4:5 vertical
+};
+
+const SERVICES = [
+  {
+    key: 'millingStructures',
+    Icon: CubeIcon,
+    image: IMAGES.structures,
+    stats: ['precision', 'delivery'],
+    listTitle: 'materialsTitle',
+    list: ['materials.zirconia', 'materials.titanium', 'materials.chromeCobalt', 'materials.pmma'],
+  },
+  {
+    key: 'advancedAesthetics',
+    Icon: StarIcon,
+    image: IMAGES.aesthetics,
+    stats: ['colorSystem', 'biocompatible'],
+    listTitle: 'restorationsTitle',
+    list: [
+      'restorations.crowns',
+      'restorations.bridges',
+      'restorations.veneers',
+      'restorations.inlaysOnlays',
+    ],
+  },
+] as const;
+
+const OFFERED = ['implantStructures', 'crownsAndBridges', 'advancedAesthetics', 'provisionalRestorations'] as const;
+
+const reveal = {
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-80px' },
+  transition: { duration: 0.6 },
+};
 
 export default function ServiciosPage() {
-  const t = useTranslations('newDesign.servicesPage');
   const params = useParams();
-  const locale = params.locale as string;
-  
+  const locale = (params.locale as string) || 'es';
+  const t = useTranslations('newDesign.servicesPage');
+  const tq = useTranslations('newDesign.hero');
+  const nav = useTranslations('navigation');
+
   return (
     <PageTransition>
       <div className="min-h-screen">
-        <Header />
-      
-      {/* Hero Section */}
-      <section className="bg-gray-50 py-16 md:py-24 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-          >
-            <motion.div 
-              className="inline-flex items-center gap-2 bg-fana-secondary text-fana-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
-              variants={fadeInUp}
-            >
-              <span className="w-2 h-2 bg-fana-primary rounded-full"></span>
-              {t('hero.badge')}
-            </motion.div>
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight"
-              variants={fadeInUp}
-            >
-              <span className="text-fana-primary">{t('hero.title').split(' de Fresado Dental')[0]}</span> {t('hero.title').includes(' de Fresado Dental') ? 'de Fresado Dental' : t('hero.title').split(' ').slice(-3).join(' ')}
-            </motion.h1>
-            <motion.p 
-              className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8"
-              variants={fadeInUp}
-            >
-              {t('hero.description')}
-            </motion.p>
-            
-            {/* Quick Stats */}
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
-              variants={staggerContainer}
-            >
-              {[
-                { value: t('hero.stats.experience.value'), label: t('hero.stats.experience.label') },
-                { value: t('hero.stats.cases.value'), label: t('hero.stats.cases.label') },
-                { value: t('hero.stats.satisfaction.value'), label: t('hero.stats.satisfaction.label') }
-              ].map((stat, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-white rounded-xl p-6 shadow-md"
-                  variants={staggerItem}
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        <PageHero
+          title={nav('services')}
+          image={IMAGES.hero}
+          imageClassName="object-[80%_50%] sm:object-center"
+        />
+
+        {/* Intro: heading left, description + service chips right */}
+        <section className="bg-white pt-16 sm:pt-20 lg:pt-28">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 lg:items-end border-b border-fana-navy/15 pb-14 sm:pb-16 lg:pb-20">
+              <motion.div {...reveal} className="lg:col-span-7">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-normal uppercase !leading-[1.15] text-fana-navy">
+                  {t('hero.title')}
+                </h2>
+              </motion.div>
+
+              <motion.div {...reveal} className="lg:col-span-5">
+                <p className="text-base sm:text-lg leading-relaxed text-gray-600">{t('hero.description')}</p>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {OFFERED.map((key) => (
+                    <li
+                      key={key}
+                      className="inline-flex items-center gap-2 rounded-full bg-fana-secondary px-4 py-2 text-sm font-medium text-fana-navy"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-fana-primary" aria-hidden="true" />
+                      {tq(`form.services.${key}`)}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Detailed services: image + copy, alternating */}
+        <section className="bg-white pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-24 lg:pb-32 overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-28 lg:space-y-36">
+            {SERVICES.map((s, i) => {
+              const flip = i % 2 === 1;
+              return (
+                <div
+                  key={s.key}
+                  className="grid lg:grid-cols-12 gap-10 lg:gap-16 lg:items-stretch"
                 >
-                  <div className="text-3xl font-bold text-fana-primary mb-2">{stat.value}</div>
-                  <div className="text-gray-600">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <OurServicesSection showCTA={false} />
-
-      {/* Detailed Services */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            {/* Service 1: Fresado de Estructuras */}
-            <div className="mb-20">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-fana-primary rounded-2xl flex items-center justify-center">
-                      <CubeIcon className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-3xl font-bold text-gray-800">{t('millingStructures.title')}</h3>
-                      <p className="text-fana-primary font-medium">{t('millingStructures.subtitle')}</p>
-                    </div>
-                  </div>
-                  
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                    {t('millingStructures.description')}
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-fana-secondary p-4 rounded-xl">
-                      <div className="text-2xl font-bold text-fana-primary mb-1">{t('millingStructures.precision.value')}</div>
-                      <div className="text-sm text-gray-600">{t('millingStructures.precision.label')}</div>
-                    </div>
-                    <div className="bg-fana-secondary p-4 rounded-xl">
-                      <div className="text-2xl font-bold text-fana-primary mb-1">{t('millingStructures.delivery.value')}</div>
-                      <div className="text-sm text-gray-600">{t('millingStructures.delivery.label')}</div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <h4 className="text-lg font-bold text-gray-800">{t('millingStructures.materialsTitle')}</h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-secondary0 rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('millingStructures.materials.zirconia')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-secondary0 rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('millingStructures.materials.titanium')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-secondary0 rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('millingStructures.materials.chromeCobalt')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-secondary0 rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('millingStructures.materials.pmma')}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="bg-fana-secondary rounded-3xl p-8 overflow-hidden">
-                    <div className="aspect-square bg-white rounded-2xl overflow-hidden relative group">
-                      {/* Real Service Image */}
-                      <Image
-                        src="/images/services/services-Structure Milling.jpg"
-                        alt={t('millingStructures.imageAlt')}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 600px"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const placeholder = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (placeholder) {
-                            placeholder.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      
-                      {/* Placeholder (shows if image not available) */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-white" style={{display: 'none'}}>
-                        <div className="text-center">
-                          <div className="w-32 h-32 bg-fana-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                            <CubeIcon className="w-16 h-16 text-white" />
-                          </div>
-                          <h4 className="text-xl font-bold text-gray-800">{t('millingStructures.imageAlt')}</h4>
-                          <p className="text-gray-600">{t('millingStructures.imageSubtitle')}</p>
+                  {/* Image */}
+                  <motion.div
+                    {...reveal}
+                    className={`lg:col-span-5 ${flip ? 'lg:order-2' : ''}`}
+                  >
+                    <div className="relative aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[32rem] overflow-hidden rounded-3xl bg-fana-secondary">
+                      {s.image ? (
+                        <Image
+                          src={s.image}
+                          alt={t(`${s.key}.imageAlt`)}
+                          fill
+                          sizes="(min-width: 1024px) 40vw, 100vw"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div
+                          aria-hidden="true"
+                          className="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-fana-primary/40 text-fana-primary/70"
+                        >
+                          <PhotoIcon className="w-12 h-12" />
+                          <span className="text-sm font-medium">Imagen · 1200 × 1500</span>
                         </div>
-                      </div>
-                      
-                      {/* Caption Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-black/55 p-4 text-white">
-                        <h4 className="text-lg font-bold">{t('millingStructures.imageAlt')}</h4>
-                        <p className="text-sm text-gray-200">{t('millingStructures.imageSubtitle')}</p>
+                      )}
+                      <div className="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 flex items-center gap-3 rounded-full bg-white/95 pl-2 pr-5 py-2 text-fana-navy shadow-lg">
+                        <span className="w-9 h-9 shrink-0 rounded-full bg-fana-primary text-white flex items-center justify-center">
+                          <s.Icon className="w-5 h-5" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block font-heading text-sm sm:text-base leading-tight">
+                            {t(`${s.key}.imageAlt`)}
+                          </span>
+                          <span className="block text-xs text-gray-500">{t(`${s.key}.imageSubtitle`)}</span>
+                        </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </motion.div>
 
-            {/* Service 2: Estética Avanzada */}
-            <div className="mb-20">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="order-2 lg:order-1">
-                  <div className="bg-fana-secondary rounded-3xl p-8 overflow-hidden">
-                    <div className="aspect-square bg-white rounded-2xl overflow-hidden relative group">
-                      {/* Real Service Image */}
-                      <Image
-                        src="/images/services/services-Advanced Aesthetics.jpg"
-                        alt={t('advancedAesthetics.imageAlt')}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 600px"
-                        priority
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const placeholder = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (placeholder) {
-                            placeholder.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      
-                      {/* Placeholder (shows if image not available) */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-white" style={{display: 'none'}}>
-                        <div className="text-center">
-                          <div className="w-32 h-32 bg-fana-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                            <StarIcon className="w-16 h-16 text-white" />
-                          </div>
-                          <h4 className="text-xl font-bold text-gray-800">{t('advancedAesthetics.imageAlt')}</h4>
-                          <p className="text-gray-600">{t('advancedAesthetics.imageSubtitle')}</p>
+                  {/* Copy */}
+                  <motion.div
+                    {...reveal}
+                    className={`lg:col-span-7 flex flex-col justify-center ${flip ? 'lg:order-1' : ''}`}
+                  >
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal uppercase !leading-[1.2] text-fana-navy">
+                      {t(`${s.key}.title`)}
+                    </h2>
+                    <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-gray-600">
+                      {t(`${s.key}.description`)}
+                    </p>
+
+                    <dl className="mt-8 grid grid-cols-2 max-w-md">
+                      {s.stats.map((stat, n) => (
+                        <div
+                          key={stat}
+                          className={`min-w-0 ${n > 0 ? 'border-l border-fana-navy/15 pl-5 sm:pl-8' : 'pr-5 sm:pr-8'}`}
+                        >
+                          <dd className="font-heading text-3xl sm:text-4xl text-fana-navy leading-none">
+                            {t(`${s.key}.${stat}.value`)}
+                          </dd>
+                          <dt className="mt-2 text-xs sm:text-sm text-gray-500">
+                            {t(`${s.key}.${stat}.label`)}
+                          </dt>
                         </div>
-                      </div>
-                      
-                      {/* Caption Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-black/55 p-4 text-white">
-                        <h4 className="text-lg font-bold">{t('advancedAesthetics.imageAlt')}</h4>
-                        <p className="text-sm text-gray-200">{t('advancedAesthetics.imageSubtitle')}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="order-1 lg:order-2">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-fana-primary rounded-2xl flex items-center justify-center">
-                      <StarIcon className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-3xl font-bold text-gray-800">{t('advancedAesthetics.title')}</h3>
-                      <p className="text-fana-primary font-medium">{t('advancedAesthetics.subtitle')}</p>
-                    </div>
-                  </div>
-                  
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                    {t('advancedAesthetics.description')}
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-fana-secondary/30 p-4 rounded-xl">
-                      <div className="text-2xl font-bold text-fana-primary mb-1">{t('advancedAesthetics.colorSystem.value')}</div>
-                      <div className="text-sm text-gray-600">{t('advancedAesthetics.colorSystem.label')}</div>
-                    </div>
-                    <div className="bg-fana-secondary/30 p-4 rounded-xl">
-                      <div className="text-2xl font-bold text-fana-primary mb-1">{t('advancedAesthetics.biocompatible.value')}</div>
-                      <div className="text-sm text-gray-600">{t('advancedAesthetics.biocompatible.label')}</div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <h4 className="text-lg font-bold text-gray-800">{t('advancedAesthetics.restorationsTitle')}</h4>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-primary rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('advancedAesthetics.restorations.crowns')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-primary rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('advancedAesthetics.restorations.bridges')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-primary rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('advancedAesthetics.restorations.veneers')}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-fana-primary rounded-full"></div>
-                        <span className="text-gray-600 text-sm">{t('advancedAesthetics.restorations.inlaysOnlays')}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                      ))}
+                    </dl>
 
-      {/* CTA Section */}
-      <section className="bg-fana-primary py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            {t('cta.title')}
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            {t('cta.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href={`/${locale}/contacto`} 
-              className="bg-white text-fana-primary px-8 py-3 rounded-lg font-medium hover:bg-fana-secondary transition-colors"
-            >
-              {t('cta.contactButton')}
-            </Link>
-            <Link 
-              href={`/${locale}/materiales`} 
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-fana-primary transition-colors"
-            >
-              {t('cta.materialsButton')}
-            </Link>
+                    <div className="mt-8">
+                      <h3 className="text-sm font-semibold text-fana-navy">
+                        {t(`${s.key}.${s.listTitle}`).replace(/:\s*$/, '')}
+                      </h3>
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {s.list.map((item) => (
+                          <li
+                            key={item}
+                            className="rounded-full border border-gray-300 px-4 py-2 text-sm text-fana-navy"
+                          >
+                            {t(`${s.key}.${item}`)}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <OurServicesSection showCTA={false} />
+
+        <CtaBanner locale={locale} />
+        <Footer />
       </div>
     </PageTransition>
   );

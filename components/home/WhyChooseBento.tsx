@@ -124,7 +124,6 @@ export default function WhyChooseBento() {
           transition={{ duration: 0.6 }}
         >
           <div className="lg:col-span-7">
-            <p className="mb-4 text-xs sm:text-sm font-medium text-gray-500">{t('label')} /</p>
             <h2 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-normal uppercase !leading-[1.15] tracking-normal text-fana-navy">
               {t('title')}
             </h2>

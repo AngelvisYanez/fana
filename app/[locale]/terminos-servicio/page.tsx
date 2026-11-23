@@ -1,6 +1,6 @@
 'use client';
 
-import Header from '@/components/Header';
+import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import { motion } from 'framer-motion';
@@ -13,56 +13,31 @@ export default function TerminosServicioPage() {
   return (
     <PageTransition>
       <div className="min-h-screen">
-        <Header />
-        
-        {/* Hero Section */}
-        <section className="bg-fana-secondary py-16">
-          <div className="container mx-auto px-4">
-            <motion.div 
-              className="text-center max-w-4xl mx-auto"
-              initial="initial"
-              animate="animate"
-              variants={staggerContainer}
-            >
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-fana-primary/10 text-fana-primary px-4 py-2 rounded-full text-sm font-medium mb-6"
-                variants={fadeInUp}
-              >
-                <span className="w-2 h-2 bg-fana-primary rounded-full"></span>
-                {t('badge')}
-              </motion.div>
-              <motion.h1 
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-fana-navy mb-6 leading-tight"
-                variants={fadeInUp}
-              >
-                <span className="text-fana-primary">{t('title')}</span>
-              </motion.h1>
-              <motion.p 
-                className="text-lg md:text-xl text-gray-600 leading-relaxed"
-                variants={fadeInUp}
-              >
-                {t('subtitle')}
-              </motion.p>
-            </motion.div>
-          </div>
-        </section>
+        <PageHero title={t('title')} image={null} showPlaceholder={false} />
 
         {/* Content Section */}
-        <section className="bg-white py-16">
+        <section className="bg-white py-16 sm:py-20 lg:py-24">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-3xl mx-auto">
               <motion.div 
                 className="prose prose-lg max-w-none"
                 initial="initial"
                 animate="animate"
                 variants={staggerContainer}
               >
-                {/* Header */}
-                <motion.div 
-                  className="bg-fana-primary/5 border-l-4 border-fana-primary p-6 rounded-r-lg mb-8"
+                <motion.p
+                  className="mb-10 text-lg sm:text-xl text-gray-600 leading-relaxed"
                   variants={fadeInUp}
                 >
-                  <h2 className="text-2xl font-bold text-fana-navy mb-2">
+                  {t('subtitle')}
+                </motion.p>
+
+                {/* Header */}
+                <motion.div 
+                  className="rounded-3xl bg-gray-50 p-6 sm:p-8 mb-12"
+                  variants={fadeInUp}
+                >
+                  <h2 className="font-heading text-2xl text-fana-navy mb-2">
                     {t('header.title')}
                   </h2>
                   <p className="text-gray-600">
@@ -79,14 +54,14 @@ export default function TerminosServicioPage() {
 
                 {/* Section 1 */}
                 <motion.div 
-                  className="mb-8"
+                  className="mb-12"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                  <h3 className="font-heading text-2xl text-fana-navy mb-5 flex items-baseline gap-4">
+                    <span className="font-heading text-xl text-fana-primary">1</span>
                     {t('sections.object.title')}
                   </h3>
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="border-t border-gray-200 pt-6">
                     <p className="text-gray-700 leading-relaxed">
                       {t('sections.object.content')}
                     </p>
@@ -95,14 +70,14 @@ export default function TerminosServicioPage() {
 
                 {/* Section 2 */}
                 <motion.div 
-                  className="mb-8"
+                  className="mb-12"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                  <h3 className="font-heading text-2xl text-fana-navy mb-5 flex items-baseline gap-4">
+                    <span className="font-heading text-xl text-fana-primary">2</span>
                     {t('sections.services.title')}
                   </h3>
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="border-t border-gray-200 pt-6">
                     <p className="text-gray-700 leading-relaxed mb-4">
                       {t('sections.services.intro')}
                     </p>
@@ -125,14 +100,14 @@ export default function TerminosServicioPage() {
 
                 {/* Section 3 */}
                 <motion.div 
-                  className="mb-8"
+                  className="mb-12"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                  <h3 className="font-heading text-2xl text-fana-navy mb-5 flex items-baseline gap-4">
+                    <span className="font-heading text-xl text-fana-primary">3</span>
                     {t('sections.process.title')}
                   </h3>
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="border-t border-gray-200 pt-6">
                     <div className="space-y-4 text-gray-700">
                       <div className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
@@ -158,14 +133,14 @@ export default function TerminosServicioPage() {
 
                 {/* Section 4 */}
                 <motion.div 
-                  className="mb-8"
+                  className="mb-12"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                  <h3 className="font-heading text-2xl text-fana-navy mb-5 flex items-baseline gap-4">
+                    <span className="font-heading text-xl text-fana-primary">4</span>
                     {t('sections.warranty.title')}
                   </h3>
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="border-t border-gray-200 pt-6">
                     <div className="space-y-4 text-gray-700">
                       <div className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-fana-primary rounded-full mt-2 flex-shrink-0"></span>
@@ -196,14 +171,14 @@ export default function TerminosServicioPage() {
 
                 {/* Section 5 */}
                 <motion.div 
-                  className="mb-8"
+                  className="mb-12"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-xl font-bold text-fana-navy mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-fana-primary text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                  <h3 className="font-heading text-2xl text-fana-navy mb-5 flex items-baseline gap-4">
+                    <span className="font-heading text-xl text-fana-primary">5</span>
                     {t('sections.jurisdiction.title')}
                   </h3>
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="border-t border-gray-200 pt-6">
                     <p className="text-gray-700 leading-relaxed">
                       {t('sections.jurisdiction.content')}
                     </p>
@@ -212,16 +187,16 @@ export default function TerminosServicioPage() {
 
                 {/* Contact Info */}
                 <motion.div 
-                  className="bg-fana-primary text-white p-8 rounded-2xl text-center"
+                  className="bg-fana-navy text-white p-8 sm:p-10 rounded-3xl text-center"
                   variants={fadeInUp}
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-white">{t('contact.title')}</h3>
-                  <p className="text-white mb-6">
+                  <h3 className="font-heading text-2xl sm:text-3xl mb-4 text-white">{t('contact.title')}</h3>
+                  <p className="text-blue-100 mb-6">
                     {t('contact.subtitle')}
                   </p>
                   <a 
                     href="mailto:info@fanamillingcenter.com"
-                    className="inline-flex items-center gap-2 bg-white text-fana-primary px-6 py-3 rounded-lg font-medium hover:bg-fana-secondary transition-colors"
+                    className="inline-flex items-center gap-2 bg-white text-fana-navy px-6 py-3 rounded-full font-medium hover:bg-fana-secondary hover:text-fana-navy transition-colors"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />

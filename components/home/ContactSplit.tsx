@@ -73,7 +73,6 @@ export default function ContactSplit({ locale }: { locale: string }) {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-4 text-xs sm:text-sm font-medium text-gray-500">{t('label')} /</p>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal uppercase !leading-[1.15] text-fana-navy">
               {t('title')}
             </h2>

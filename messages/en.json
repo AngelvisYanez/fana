@@ -500,7 +500,7 @@
         "quote": "Get a quote",
         "pricing": "Pricing plans"
       },
-      "copyright": "© 2025 FANA Milling Center - Design & Developed by FANA.",
+      "copyright": "© 2026 FANA Milling Center - Design & Developed by FANA.",
       "legal": {
         "terms": "Terms of service",
         "privacy": "Privacy policy"
@@ -802,6 +802,72 @@
         "contactButton": "Contact Now"
       }
     },
+    "materialsPage": {
+      "intro": {
+        "label": "Premium materials",
+        "title": "High-quality materials",
+        "description": "We only work with certified, biocompatible materials from the best international brands."
+      },
+      "items": {
+        "zirconia": {
+          "title": "Multilayer zirconia",
+          "description": "High strength and superior aesthetics for long-lasting restorations.",
+          "imageAlt": "Multilayer zirconia blocks",
+          "spec1": "Strength > 1200 MPa",
+          "spec2": "Natural translucency",
+          "spec3": "ISO 13356 certification",
+          "spec4": "Full biocompatibility"
+        },
+        "lithium": {
+          "title": "Lithium disilicate",
+          "description": "Outstanding aesthetics for restorations that demand maximum naturalness.",
+          "imageAlt": "Lithium disilicate blocks",
+          "spec1": "Strength > 400 MPa",
+          "spec2": "Superior aesthetics",
+          "spec3": "Minimal wear",
+          "spec4": "CE certification"
+        },
+        "pmma": {
+          "title": "PMMA",
+          "description": "High-quality provisional material for temporary restorations.",
+          "imageAlt": "PMMA discs for provisionals",
+          "spec1": "Provisional blocks",
+          "spec2": "Easy milling",
+          "spec3": "Wide range of shades",
+          "spec4": "Cost-effective"
+        },
+        "wax": {
+          "title": "Milling wax",
+          "description": "For modeling and waxing prosthetic frameworks.",
+          "imageAlt": "Milling wax discs",
+          "spec1": "Precise modeling",
+          "spec2": "Easy milling",
+          "spec3": "Residue-free",
+          "spec4": "Direct casting"
+        }
+      },
+      "technology": {
+        "label": "Technology",
+        "title": "5-axis CNC milling",
+        "description": "Micrometric-precision machinery to guarantee outstanding results.",
+        "imageAlt": "FANA 5-axis CNC milling machine",
+        "fiveAxis": {
+          "title": "5-axis milling machines",
+          "metric": "±5μm",
+          "text": "Micrometric precision"
+        },
+        "scanners": {
+          "title": "3D scanners",
+          "metric": "10μm",
+          "text": "Scanning resolution"
+        },
+        "software": {
+          "title": "CAD/CAM software",
+          "metric": "CE",
+          "text": "Medical certification"
+        }
+      }
+    },
     "servicesPage": {
       "hero": {
         "badge": "Specialized Services",
@@ -909,11 +975,33 @@
     }
   },
   "about": {
+    "page": {
+      "hero": {
+        "title": "About us",
+        "imageAlt": "FANA dental milling laboratory with 5-axis CNC machines"
+      },
+      "intro": {
+        "label": "Principles",
+        "lead": "FANA is a CAD/CAM milling center with more than 4 years producing frameworks and restorations",
+        "muted": "for laboratories and clinics in South Florida, with a technician's eye on every case."
+      },
+      "history": {
+        "label": "Our story",
+        "imageAlt": "FANA Milling Center team"
+      },
+      "values": {
+        "items": {
+          "precision": { "title": "Measurable precision", "text": "A 5 μm tolerance on every milled piece." },
+          "ownProduction": { "title": "In-house production", "text": "We control milling from start to finish, with no middlemen." },
+          "directContact": { "title": "Direct contact", "text": "You talk to the people making your case and get answers without delay." }
+        }
+      }
+    },
     "history": {
       "title": "Our History",
       "paragraph1": "FANA Milling Center was born more than 4 years ago with a clear vision: to revolutionize dental manufacturing through the most advanced CAD/CAM technology. Since our beginnings, we have been committed to excellence and constant innovation.",
       "paragraph2": "Today, we are leaders in the sector, offering 5-axis CNC milling services with micrometric precision. Our team of experts works daily to ensure that every dental prosthesis leaving our laboratory meets the highest quality standards.",
-      "paragraph3": "With more than 500 successfully completed cases and a 99% satisfaction rate, we are proud to be the trusted technological partner for dental laboratories and clinics throughout Spain."
+      "paragraph3": "With more than 500 successfully completed cases and a 99% satisfaction rate, we are proud to be the trusted technological partner for dental laboratories and clinics across South Florida."
     },
     "cta": {
       "title": "Interested in Our Services?",
@@ -921,6 +1009,13 @@
       "contactButton": "Contact Now",
       "servicesButton": "View Services"
     }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The address you are looking for does not exist or has moved. Check the link or head back home.",
+    "home": "Go to home",
+    "contact": "Contact us",
+    "linksTitle": "Useful pages"
   },
   "legal": {
     "privacy": {
@@ -929,7 +1024,7 @@
       "subtitle": "Information about personal data processing in accordance with GDPR",
       "header": {
         "title": "PRIVACY POLICY (GDPR)",
-        "lastUpdate": "Last updated: October 2025"
+        "lastUpdate": "Last updated: November 2026"
       },
       "sections": {
         "responsible": {
@@ -996,7 +1091,7 @@
         "expDate": "Expiration date: 31/12/2030",
         "address": "Address: 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA",
         "county": "County: MIAMI-DADE",
-        "lastUpdate": "Last updated: October 2025"
+        "lastUpdate": "Last updated: November 2026"
       },
       "sections": {
         "object": {
@@ -1052,7 +1147,7 @@
         "registration": "Registration number: G25000131466",
         "address": "Address: 8501 NW 107TH CT. UNIT 3, MIAMI, FL 33178, USA",
         "county": "County: MIAMI-DADE",
-        "lastUpdate": "Last updated: October 2025"
+        "lastUpdate": "Last updated: November 2026"
       },
       "sections": {
         "whatAre": {

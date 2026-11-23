@@ -35,7 +35,7 @@ const QUOTE_SERVICES = [
 const inputClass =
   'w-full px-4 py-3 text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-fana-primary focus:border-transparent outline-none text-gray-700 placeholder-gray-500';
 
-function QuoteModal({ onClose }: { onClose: () => void }) {
+export function QuoteModal({ onClose }: { onClose: () => void }) {
   const t = useTranslations('newDesign.hero');
   const th = useTranslations('newDesign.heroV2');
   const [formData, setFormData] = useState({ fullName: '', phone: '', email: '', services: [] as string[] });

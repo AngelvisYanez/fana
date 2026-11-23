@@ -1,6 +1,5 @@
 'use client';
 
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
@@ -13,13 +12,12 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations';
 
 export default function Footer() {
-  const params = useParams();
-  const locale = params.locale as string || 'es';
+  const locale = useLocale();
   const nav = useTranslations('navigation');
   const footer = useTranslations('footer');
 
